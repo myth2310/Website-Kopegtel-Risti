@@ -35,11 +35,15 @@
                     <h3 class="mb-0">Anggota</h3>
                 </div>                    
                 <div class="col-4 text-right">
-                    <a href="/member" class="btn btn-sm btn-primary btn-round btn-icon" data-toggle="sweet-alert" data-sweet-alert="confirm">               
-                        <span class="btn-inner--text">Download Data</span>
+                    <a href="/member/download" class="btn btn-sm btn-outline-primary btn-round btn-icon" data-toggle="sweet-alert" data-sweet-alert="confirm">               
+                        <span class="btn-inner--text">
+                            Download Data
+                        </span>
                     </a>
                     <a href="/member/create" class="btn btn-sm btn-primary btn-round btn-icon">               
-                        <span class="btn-inner--text">Tambah Anggota Baru</span>
+                        <span class="btn-inner--text">
+                            Tambah Anggota Baru
+                        </span>
                     </a>
                 </div>
             </div>
@@ -53,6 +57,7 @@
                         <th>Nomor Telepon</th>
                         <th>Alamat</th>
                         <th>Jabatan</th>
+                        <th>Foto</th>
                         <th>Status</th>
                         <th> </th>
                     </tr>
@@ -65,6 +70,13 @@
                             <td> {{ $res->phone }} </td>
                             <td> {{ $res->address }} </td>
                             <td> {{ $res->position }} </td>
+                            <td> 
+                                <img 
+                                    style="max-width: 76px", 
+                                    object-fit="cover" 
+                                    src="{{asset('storage/'.$res->image)}}"
+                                > 
+                            </td>
                             <td>                                                
                                 @if ($res->status == "Aktif")
                                     <span class="badge badge-pill badge-success">

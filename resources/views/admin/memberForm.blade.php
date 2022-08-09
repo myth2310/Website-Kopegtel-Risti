@@ -120,6 +120,24 @@
                 </div>          
 
                 <div class="form-group">
+                    <label class="form-control-label">Foto</label>                            
+                    <div class="custom-file">
+                        <input 
+                            type="file" 
+                            name="image" 
+                            class={{isset($member)?'file-input':'custom-file-input'}}
+                            id="customFileLang" 
+                            lang="en"
+                        >
+                        <label 
+                            class="custom-file-label" 
+                            for="customFileLang"
+                        > {{isset($member)?$member->image:('Pilih file')}} 
+                        </label>
+                    </div>                
+                </div>
+
+                <div class="form-group">
                     <a href="/member" class="btn btn-secondary">
                     @if (Session::get('success'))
                         Kembali

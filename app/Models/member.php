@@ -15,6 +15,7 @@ class member extends Model
         'phone',
         'address',
         'position',
+        'image',
         'status',
     ];
 }

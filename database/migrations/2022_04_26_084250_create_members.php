@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('position')->default('Anggota');
+            $table->string('image')->default("");
             $table->string('status')->default('Aktif');
             $table->timestamps();
         });

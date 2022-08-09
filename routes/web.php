@@ -49,6 +49,7 @@ $router->group([
     Route::get('/edit/{id}', '\App\Http\Controllers\memberController@edit')->name('edit');
     Route::put('/update/{id}', '\App\Http\Controllers\memberController@update')->name('update');
     Route::delete('/delete/{id}', '\App\Http\Controllers\memberController@destroy')->name('destroy');
+    Route::get('/download', '\App\Http\Controllers\memberController@download')->name('download');
 });
 
 //--- Activity ---

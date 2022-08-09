@@ -6,6 +6,8 @@ use App\Models\member;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use App\Exports\MemberExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class memberController extends Controller
 {
@@ -47,16 +49,30 @@ class memberController extends Controller
             'name' => 'required',
             'email' => 'required|unique:members',
             'phone' => 'required',
-            'address' => 'required'  
+            'address' => 'required',
+            'image' => 'image|file|max:2048,jpeg,png,jpg',
         ], 
         [
             "name.required" => "Please enter member name",
             "email.required" => "Please enter email",
             "phone.required" => "Please enter phone number",
             "address.required" => "Please enter address",
+            "image.required" => "Please insert image",
         ]);
 
-        $member = member::create($request->all());
+        if ($request->file('image')){
+            $image = $request->file('image')->store("/images/member");
+        } 
+
+        // $member = member::create($request->all());
+
+        $member = member::create([
+            'name' => $request["name"],
+            'email' => $request["email"],
+            'phone' => $request["phone"],
+            'address' => $request["address"],
+            'image' => $image,
+        ]);
 
         return redirect('/member') -> with('success', "Data berhasil ditambahkan!");  
     }
@@ -106,7 +122,8 @@ class memberController extends Controller
             'phone' => 'required',
             'address' => 'required',  
             'position' => 'required',  
-            'status' => 'required'  
+            'status' => 'required',
+            'image' => 'image|file|max:2048,jpeg,png,jpg',
         ], 
         [
             "name.required" => "Please enter member name",
@@ -114,8 +131,17 @@ class memberController extends Controller
             "email.unique" => "Email already used",
             "phone.required" => "Please enter phone number",
             "address.required" => "Please enter address",
+            "image.required" => "Please insert image",
         ]);
-        
+
+        if($request->hasFile('image')){
+            $request->validate([
+              'image' => 'image|file|max:2048,jpeg,png,jpg',
+            ]);
+            Storage::delete($member->image);
+            $path = $request->file('image')->store('images/member');
+            $member->image = $path;
+        }
         $member->name = $validator["name"];
         $member->phone = $validator["phone"];
         $member->address = $validator["address"];
@@ -138,7 +164,18 @@ class memberController extends Controller
      */
     public function destroy($id)
     {
+        $member = member::find($id);
+        Storage::delete($member->image);
+
         $member = member::destroy($id);
         return back() -> with('success', "Data successfully deleted!"); 
+    }
+
+    // Download data
+    public function download()
+    {
+        return Excel::download(new MemberExport, 'DataAnggota_KopegtelRisti.xlsx');
+
+        // return redirect('/member') -> with('success', "Data anggota berhasil di download!"); 
     }
 }
