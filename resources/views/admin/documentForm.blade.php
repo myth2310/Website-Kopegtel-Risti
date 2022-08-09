@@ -29,35 +29,40 @@
                     @enderror
                 </div>  
                 
-                <div class="form-group">
-                    <label for="" class="form-control-label">Dokumen ini dapat diunduh?</label>
-                    <div class="custom-control custom-radio mb-3 @error('status') is-invalid @enderror">
-                        <input 
-                            type="radio" 
-                            id="customRadio1" 
-                            name="status" 
-                            class="custom-control-input"
-                            value="yes"
-                            @if (isset($document))
-                                {{$document->status == "yes" ? "checked":""}}                                    
-                            @endif
-                        >
-                        <label class="custom-control-label" for="customRadio1">Ya</label>
+                @if (isset($document))            
+                    <div class="form-group">
+                        <label for="" class="form-control-label">Dokumen ini dapat diunduh?</label>
+                        <div class="custom-control custom-radio mb-3 @error('status') is-invalid @enderror">
+                            <input 
+                                type="radio" 
+                                id="customRadio1" 
+                                name="status" 
+                                class="custom-control-input"
+                                value="yes"
+                                @if (isset($document))
+                                    {{$document->status == "yes" ? "checked":""}}                                    
+                                @endif
+                            >
+                            <label class="custom-control-label" for="customRadio1">Ya</label>
+                            </div>
+                            <div class="custom-control custom-radio" >
+                            <input 
+                                type="radio" 
+                                id="customRadio2" 
+                                name="status" 
+                                class="custom-control-input"
+                                value="no"
+                                @if (isset($document))
+                                    {{$document->status == "no" ? "checked":""}}                                    
+                                @endif
+                            >
+                            <label class="custom-control-label" for="customRadio2">Tidak</label>
                         </div>
-                        <div class="custom-control custom-radio" >
-                        <input 
-                            type="radio" 
-                            id="customRadio2" 
-                            name="status" 
-                            class="custom-control-input"
-                            value="no"
-                            @if (isset($document))
-                                {{$document->status == "no" ? "checked":""}}                                    
-                            @endif
-                        >
-                        <label class="custom-control-label" for="customRadio2">Tidak</label>
+                        @error('status')
+                            <small id="nameHelp" class="alert-danger">{{ $message }}</small>
+                        @enderror
                     </div>
-                </div>
+                @endif
 
                 <div class="form-group">
                     <label class="form-control-label">Dokumen</label>

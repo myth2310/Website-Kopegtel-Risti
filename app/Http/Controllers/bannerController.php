@@ -45,10 +45,12 @@ class bannerController extends Controller
     {
         $request -> validate([
             'name' => 'required',
+            'status' => 'required',
             'image' => 'image|file|max:2048,jpeg,png,jpg', 
         ], 
         [
             "name.required" => "Please enter banner name",
+            "status.required" => "Please select banner status",
             "image.required" => "Please insert image",
         ]);
 
@@ -58,6 +60,7 @@ class bannerController extends Controller
         
         $banner = banner::create([
             'name' => $request["name"],
+            'status' => $request["status"],
             'image' => $image,
         ]);
 
@@ -104,6 +107,7 @@ class bannerController extends Controller
         $banner = banner::find($id);
         $validator = $request -> validate([
             'name' => 'required',
+            'status' => 'required',
             'image' => 'image|file|max:2048,jpeg,png,jpg',  
         ], 
         [
@@ -120,6 +124,7 @@ class bannerController extends Controller
             $banner->image = $path;
         }
         $banner->name = $request->name;
+        $banner->status = $request->status;
         $banner->save();
 
         return redirect('/banner') -> with('success', "Data berhasil diperbarui!");

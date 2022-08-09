@@ -29,6 +29,38 @@
                     @enderror
                 </div>                     
 
+                @if (isset($banner))                    
+                    <div class="form-group">
+                        <label for="" class="form-control-label">Tampilkan foto ini di dashboard?</label>
+                        <div class="custom-control custom-radio mb-3 @error('status') is-invalid @enderror">
+                            <input 
+                                type="radio" 
+                                id="customRadio1" 
+                                name="status" 
+                                class="custom-control-input"
+                                value="yes"
+                                @if (isset($banner))
+                                    {{$banner->status == "yes" ? "checked":""}}                                    
+                                @endif
+                            >
+                            <label class="custom-control-label" for="customRadio1">Ya</label>
+                            </div>
+                            <div class="custom-control custom-radio" >
+                            <input 
+                                type="radio" 
+                                id="customRadio2" 
+                                name="status" 
+                                class="custom-control-input"
+                                value="no"
+                                @if (isset($banner))
+                                    {{$banner->status == "no" ? "checked":""}}                                    
+                                @endif
+                            >
+                            <label class="custom-control-label" for="customRadio2">Tidak</label>
+                        </div>
+                    </div>
+                @endif
+
                 <div class="form-group">
                     <label class="form-control-label">Gambar</label>
                     <div class="custom-file">

@@ -6,9 +6,26 @@
     style="padding-left: 32px; padding-right: 32px; padding-top: 92px;"
 >  
     @if (Session::get('success'))
-    <div class="alert alert-success">
-        {{ Session::get('success') }}
-    </div>                                                        
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+            <span class="alert-text">
+                {{ Session::get('success') }}
+            </span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+    @if (Session::get('fail'))
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+            <span class="alert-text">
+                {{ Session::get('fail') }}
+            </span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>                        
     @endif
 
     <div class="card">
