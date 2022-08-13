@@ -21,14 +21,14 @@
                         name="fileName" 
                         id="fileName" 
                         placeholder="Enter name..."
-                        class="form-control @error('name') is-invalid @enderror" 
+                        class="form-control @error('fileName') is-invalid @enderror" 
                         value="{{isset($document)?$document->fileName:old('fileName')}}"
                     >
                     @error('fileName')
-                        <small id="nameHelp" class="alert-danger">{{ $message }}</small>
+                        <div class="invalid-feedback"> {{ $message }} </div>
                     @enderror
-                </div>  
-                
+                </div>          
+
                 @if (isset($document))            
                     <div class="form-group">
                         <label for="" class="form-control-label">Dokumen ini dapat diunduh?</label>
@@ -74,7 +74,7 @@
                             id="customFileLang" 
                             lang="id"
                             value="asdsad"
-                        >
+                        required>
                         <label 
                             class="custom-file-label" 
                             for="customFileLang"

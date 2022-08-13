@@ -25,7 +25,7 @@
                         value="{{ isset($member)?$member->name:old('name') }}"
                     >
                     @error('name')
-                        <small id="nameHelp" class="alert-danger">{{ $message }}</small>
+                        <div class="invalid-feedback"> {{ $message }} </div>
                     @enderror
                 </div>
                 
@@ -40,7 +40,7 @@
                         value="{{ isset($member)?$member->email:old('email') }}"
                     >
                     @error('email')
-                        <small id="emailHelp" class="alert-danger">{{ $message }}</small>
+                        <div class="invalid-feedback"> {{ $message }} </div>
                     @enderror
                 </div>      
 
@@ -55,13 +55,13 @@
                         value="{{ isset($member)?$member->phone:old('phone') }}"
                     >
                     @error('phone')
-                        <small id="phoneHelp" class="alert-danger">{{ $message }}</small>
+                        <div class="invalid-feedback"> {{ $message }} </div>
                     @enderror
                 </div>
 
                 @if (isset($member))                    
                     <div class="form-group">
-                        <label for="" class="form-control-label">Position</label>
+                        <label for="" class="form-control-label">Jabatan</label>
                         <select class="form-control @error('position') is-invalid @enderror" id="position" name="position">
                             <option value="Anggota" {{($member->position == "Anggota" ? "selected": "")}}>Anggota</option>
                             <option value="Ketua" {{($member->position == "Ketua" ? "selected": "")}}>Ketua</option>
@@ -71,36 +71,19 @@
                             <option value="Korbid Usaha 2" {{($member->position == "Korbid Usaha 2" ? "selected": "")}}>Korbid Usaha 2</option>
                         </select>
                         @error('position')
-                            <small id="position" class="alert-danger">{{ $message }}</small>
+                            <div class="invalid-feedback"> {{ $message }} </div>
                         @enderror
                     </div>
 
                     <div class="form-group">
                         <label for="" class="form-control-label">Status</label>
-                        <div class="custom-control custom-radio mb-3 @error('status') is-invalid @enderror">
-                            <input 
-                                type="radio" 
-                                id="customRadio1" 
-                                name="status" 
-                                class="custom-control-input"
-                                value="Aktif"
-                                {{$member->status == "Aktif" ? "checked":""}}
-                            >
-                            <label class="custom-control-label" for="customRadio1">Active</label>
-                            </div>
-                            <div class="custom-control custom-radio" >
-                            <input 
-                                type="radio" 
-                                id="customRadio2" 
-                                name="status" 
-                                class="custom-control-input"
-                                value="Pensiun"
-                                {{$member->status == "Pensiun" ? "checked":""}}
-                            >
-                            <label class="custom-control-label" for="customRadio2">Inactive</label>
-                        </div>
+                        <select class="form-control @error('status') is-invalid @enderror" id="status" name="status">
+                            <option value="Aktif" {{($member->status == "Aktif" ? "selected": "")}}>Aktif</option>
+                            <option value="Pensiun" {{($member->status == "Pensiun" ? "selected": "")}}>Pensiun</option>
+                            <option value="Luar Biasa" {{($member->status == "Luar Biasa" ? "selected": "")}}>Luar Biasa</option>
+                        </select>
                         @error('status')
-                            <small id="status" class="alert-danger">{{ $message }}</small>
+                            <div class="invalid-feedback"> {{ $message }} </div>
                         @enderror
                     </div>
                 @endif
@@ -115,7 +98,7 @@
                         class="form-control @error('address') is-invalid @enderror" 
                     >{{ isset($member)?$member->address:old('address') }}</textarea>
                     @error('address')
-                        <small id="addressHelp" class="alert-danger">{{ $message }}</small>
+                        <div class="invalid-feedback"> {{ $message }} </div>
                     @enderror
                 </div>          
 
@@ -128,13 +111,17 @@
                             class={{isset($member)?'file-input':'custom-file-input'}}
                             id="customFileLang" 
                             lang="en"
-                        >
+                        required>
                         <label 
                             class="custom-file-label" 
                             for="customFileLang"
-                        > {{isset($member)?$member->image:('Pilih file')}} 
+                        > 
+                            {{isset($member)?$member->image:('Pilih file')}} 
                         </label>
                     </div>                
+                    @error('image')
+                        <div class="invalid-feedback"> {{ $message }} </div>
+                    @enderror
                 </div>
 
                 <div class="form-group">

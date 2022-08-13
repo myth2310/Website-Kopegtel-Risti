@@ -61,6 +61,7 @@
                                 <img  
                                     style="max-width: 76px",  
                                     object-fit="cover" 
+                                    alt="Gambar Produk"
                                     src="{{asset('storage/'.$res->image)}}"
                                 > 
                             </td>

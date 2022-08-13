@@ -62,9 +62,7 @@ class memberController extends Controller
 
         if ($request->file('image')){
             $image = $request->file('image')->store("/images/member");
-        } 
-
-        // $member = member::create($request->all());
+        }
 
         $member = member::create([
             'name' => $request["name"],

@@ -55,7 +55,12 @@
                             <td> {{ $res->name }} </td>
                             <td> {{ $res->email }} </td>
                             <td> {{ $res->subject }} </td>
-                            <td> {{ $res->message }} </td>
+                            <td style=
+                                "word-wrap: break-all; 
+                                width: 160px; ;"
+                            > 
+                                {{ $res->message }} 
+                            </td>
                             <td class="table-actions">
                                 <div class="row">
                                     <form action="message/delete/{{$res->message_id}}" method="POST">

@@ -27,7 +27,7 @@
             </button>
         </div>                        
     @endif
-    
+
     <div class="card">
         <div class="card-header border-0">
             <div class="row">
@@ -74,6 +74,7 @@
                                 <img 
                                     style="max-width: 76px", 
                                     object-fit="cover" 
+                                    alt="Pas Foto"
                                     src="{{asset('storage/'.$res->image)}}"
                                 > 
                             </td>
@@ -82,8 +83,12 @@
                                     <span class="badge badge-pill badge-success">
                                         {{ $res->status }} 
                                     </span>                                        
-                                @else
+                                @elseif ($res->status == "Pensiun")
                                     <span class="badge badge-pill badge-secondary">
+                                        {{ $res->status }} 
+                                    </span>                                                                                
+                                @else
+                                    <span class="badge badge-pill badge-info">
                                         {{ $res->status }} 
                                     </span>                                                                                
                                 @endif                                
@@ -96,8 +101,8 @@
                                     <span class="iconify" data-icon="tabler:edit" style="font-size: 20px;"></span>
                                 </button>
                                 <form action="member/delete/{{$res->member_id}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
+                                @csrf
+                                @method('DELETE')
                                     <button 
                                         type="submit" 
                                         class="btn table-action table-action-delete"

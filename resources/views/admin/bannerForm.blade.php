@@ -25,7 +25,7 @@
                         value="{{isset($banner)?$banner->name:old('name')}}"
                     >
                     @error('name')
-                        <small id="nameHelp" class="alert-danger">{{ $message }}</small>
+                        <div class="invalid-feedback"> {{ $message }} </div>
                     @enderror
                 </div>                     
 
@@ -70,7 +70,7 @@
                             class={{isset($banner)?'file-input':'custom-file-input'}}
                             id="customFileLang" 
                             lang="en"
-                        >
+                        required>
                         <label 
                             class="custom-file-label" 
                             for="customFileLang"

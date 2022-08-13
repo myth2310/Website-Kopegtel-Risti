@@ -33,7 +33,8 @@ class DatabaseSeeder extends Seeder
                 'phone' => $faker->PhoneNumber,
                 'address' => $faker->address,
                 'position' => $faker->randomElement(['Anggota']),
-                'status' => $faker->randomElement(['Aktif', 'Pensiun']),
+                'status' => $faker->randomElement(['Aktif', 'Pensiun', 'Luar Biasa']),
+                'image' => "No image found",
                 'created_at' => date("Y-m-d"),            
                 'updated_at' => date("Y-m-d"),            
             ]);
@@ -48,7 +49,7 @@ class DatabaseSeeder extends Seeder
                 ]),
                 'date' => $faker->date("Y-m-d"),
                 'description' => $faker->sentence,
-                'image' => $faker->image(null, 640, 480),
+                'image' => "No image found",
                 'created_at' => date("Y-m-d"),            
                 'updated_at' => date("Y-m-d"),     
             ]);
@@ -63,7 +64,7 @@ class DatabaseSeeder extends Seeder
                     'Simpanan Sukarela Berjangka (SSB)'
                 ]),
                 'description' => $faker->sentence,
-                'image' => $faker->image(null, 640, 480),
+                'image' => "No image found",
                 'created_at' => date("Y-m-d"),            
                 'updated_at' => date("Y-m-d"),     
             ]);
@@ -81,7 +82,7 @@ class DatabaseSeeder extends Seeder
                     'xlx', 
                     'csv',
                 ]),
-                'file' => "files/5S3f06xzqJxXBfCGzGqBTptGkEsMz7k5sAg3pfTJ.pdf",
+                'file' => "No document found",
                 'created_at' => date("Y-m-d"),            
                 'updated_at' => date("Y-m-d"),     
             ]);
@@ -101,7 +102,7 @@ class DatabaseSeeder extends Seeder
         for ($i=0; $i < 5; $i++) {
             DB::table('banners')->insert([
                 'name' => $faker->name,
-                'image' => $faker->image(null, 640, 480),
+                'image' => "No image found",
                 'created_at' => date("Y-m-d"),            
                 'updated_at' => date("Y-m-d"),     
             ]);

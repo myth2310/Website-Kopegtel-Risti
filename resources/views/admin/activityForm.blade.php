@@ -25,7 +25,7 @@
                         value="{{isset($activity)?$activity->name:old('name')}}"
                     >
                     @error('name')
-                        <small id="nameHelp" class="alert-danger">{{ $message }}</small>
+                        <div class="invalid-feedback"> {{ $message }} </div>
                     @enderror
                 </div>
                 
@@ -39,7 +39,7 @@
                         value="{{isset($activity)?$activity->date:old('date')}}"
                     >
                     @error('date')
-                        <small id="dateHelp" class="alert-danger">{{ $message }}</small>
+                        <div class="invalid-feedback"> {{ $message }} </div>
                     @enderror
                 </div>      
 
@@ -53,7 +53,7 @@
                         class="form-control @error('description') is-invalid @enderror"
                     >{{isset($activity)?$activity->description:old('description')}}</textarea>
                     @error('description')
-                        <small id="descriptionHelp" class="alert-danger">{{ $message }}</small>
+                        <div class="invalid-feedback"> {{ $message }} </div>
                     @enderror
                 </div>          
 
@@ -66,7 +66,7 @@
                             class={{isset($activity)?'file-input':'custom-file-input'}}
                             id="customFileLang" 
                             lang="en"
-                        >
+                        required>
                         <label 
                             class="custom-file-label" 
                             for="customFileLang"

@@ -19,11 +19,11 @@
                             </span>
                         </div>
                         <div class="col-auto">
-                            <div class="icon icon-shape text-white bg-red">
+                            <div class="icon icon-shape text-white bg-orange">
                                 <span 
                                     class="iconify" 
                                     data-icon="majesticons:users" 
-                                    style="color: #f0f0f0; font-size: 24px;"
+                                    style="color: #fcfcfc; font-size: 24px;"
                                 ></span>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                                 <span 
                                     class="iconify" 
                                     data-icon="majesticons:box" 
-                                    style="color: #f0f0f0; font-size: 24px;"
+                                    style="color: #fcfcfc; font-size: 24px;"
                                 ></span>
                             </div>
                         </div>
@@ -74,8 +74,8 @@
                             <div class="icon icon-shape text-white bg-green">
                                 <span 
                                     class="iconify" 
-                                    data-icon="majesticons:users" 
-                                    style="color: #f0f0f0; font-size: 24px;"
+                                    data-icon="majesticons:user" 
+                                    style="color: #fcfcfc; font-size: 24px;"
                                 ></span>                                
                             </div>
                         </div>
@@ -96,11 +96,11 @@
                             </span>
                         </div>
                         <div class="col-auto">
-                            <div class="icon icon-shape text-white bg-orange">
+                            <div class="icon icon-shape text-white bg-red">
                                 <span 
                                     class="iconify" 
-                                    data-icon="majesticons:users" 
-                                    style="color: #f0f0f0; font-size: 24px;"
+                                    data-icon="majesticons:user" 
+                                    style="color: #fcfcfc; font-size: 24px;"
                                 ></span>                                
                             </div>
                         </div>
