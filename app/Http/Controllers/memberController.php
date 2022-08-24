@@ -166,7 +166,7 @@ class memberController extends Controller
         Storage::delete($member->image);
 
         $member = member::destroy($id);
-        return back() -> with('success', "Data successfully deleted!"); 
+        return back() -> with('success', "Data berhasil dihapus!"); 
     }
 
     // Download data

@@ -6,26 +6,12 @@
     style="padding-left: 32px; padding-right: 32px; padding-top: 92px;"
 >  
     @if (Session::get('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <span class="alert-icon"><i class="ni ni-like-2"></i></span>
-            <span class="alert-text">
-                {{ Session::get('success') }}
-            </span>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
-    @if (Session::get('fail'))
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <span class="alert-icon"><i class="ni ni-like-2"></i></span>
-            <span class="alert-text">
-                {{ Session::get('fail') }}
-            </span>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>                        
+    <script>
+        var message = "<?php echo Session::get('success') ?>";
+        window.onload = event => {
+            successAlert( message );
+        };
+    </script>
     @endif
 
     <div class="card">
@@ -93,23 +79,34 @@
                                     </span>                                                                                
                                 @endif                                
                             </td>
-                            <td class="table-actions">                                
+                            <td class="table-actions">     
+                                {{-- Edit --}}                           
                                 <button
                                     onclick="window.location='{{ url('/member/edit/'.$res->member_id) }}'" 
                                     class="btn table-action"
                                 >
                                     <span class="iconify" data-icon="tabler:edit" style="font-size: 20px;"></span>
                                 </button>
-                                <form action="member/delete/{{$res->member_id}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                    <button 
-                                        type="submit" 
-                                        class="btn table-action table-action-delete"
+
+                                {{-- Delete --}}
+                                <button
+                                    class="btn table-action table-action-delete delete"
+                                    data-id="{{$res->member_id}}"
+                                >
+                                    <form 
+                                        action="member/delete/{{$res->member_id}}" 
+                                        id="delete{{$res->member_id}}"
+                                        method="POST"
                                     >
-                                        <span class="iconify" data-icon="tabler:trash" style="font-size: 20px;"></span>
-                                    </button>
-                                </form>                                
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
+                                    <span 
+                                        class="iconify" 
+                                        data-icon="tabler:trash" 
+                                        style="font-size: 20px; margin: 0px">
+                                    </span>
+                                </button>                             
                             </td>
                         </tr>
                     @endforeach
@@ -118,4 +115,7 @@
         </div>            
     </div>
 </div>    
+
+@include('layouts.sweetalert')
+
 @endsection

@@ -8,19 +8,22 @@ use App\Models\member;
 use App\Models\product;
 use App\Models\activity;
 use App\Models\document;
+use App\Models\banner;
 
 class enduserController extends Controller
 {
     public function homepage()
     {
-        $product = DB::select('SELECT * FROM products ORDER BY created_at DESC');
-        $activity = DB::select('SELECT * FROM activities ORDER BY created_at DESC');
+        $product = DB::select('SELECT * FROM products ORDER BY created_at DESC LIMIT 6');
+        $activity = DB::select('SELECT * FROM activities ORDER BY created_at DESC LIMIT 6');
         $banner = DB::select('SELECT * FROM banners WHERE status = "yes"');
+        $total_banner = banner::all() -> count();
 
         return view('visitor.homepage', [
             'product' => $product,
             'activity' => $activity,
             'banner' => $banner,
+            'total_banner' => $total_banner,
         ]);
     }
 

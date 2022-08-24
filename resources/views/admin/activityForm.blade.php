@@ -7,7 +7,9 @@
 >   
     <div class="card">
         <div class="card-header">
-            <h3>Tambah Kegiatan Baru</h3>
+            <h3>
+                {{isset($activity)?"Ubah Kegiatan":"Tambah Kegiatan Baru"}} 
+            </h3>
         </div>
         
         <div class="card-body">
@@ -66,7 +68,7 @@
                             class={{isset($activity)?'file-input':'custom-file-input'}}
                             id="customFileLang" 
                             lang="en"
-                        required>
+                        {{isset($activity)?"":"required"}}>
                         <label 
                             class="custom-file-label" 
                             for="customFileLang"
@@ -77,11 +79,7 @@
 
                 <div class="form-group">
                     <a href="/activity" class="btn btn-secondary">
-                    @if (Session::get('success'))
-                        Kembali
-                    @else
                         Batal
-                    @endif
                     </a>                            
                     <button type="submit" class="btn btn-primary"> 
                         {{isset($activity)?"Simpan":"Tambah Kegiatan"}}                            

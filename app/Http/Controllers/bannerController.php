@@ -43,21 +43,20 @@ class bannerController extends Controller
      */
     public function store(Request $request)
     {
+       
         $request -> validate([
             'name' => 'required',
-            'status' => 'required',
             'image' => 'image|file|max:2048,jpeg,png,jpg', 
         ], 
         [
             "name.required" => "Please enter banner name",
-            "status.required" => "Please select banner status",
             "image.required" => "Please insert image",
         ]);
 
         if ($request->file('image')){
             $image = $request->file('image')->store("/images/banner");
         }        
-        
+                
         $banner = banner::create([
             'name' => $request["name"],
             'status' => $request["status"],

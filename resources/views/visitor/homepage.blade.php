@@ -28,9 +28,8 @@
                 </div>
             </div>
 
-            <div class="content-header__image">
-                <img src="/img/icon/home.png" alt="">
-            </div>
+            @include('layouts.slider')
+
         </div>
         </div>
 
@@ -57,66 +56,18 @@
         
         <div class="content-product">
             <a href="product.html"><h1 id="product" class="content-product__title">Produk Kami</h1></a>
-                <div class="content-product__card-container">
+            <div class="content-product__card-container">
+                @foreach ($product as $productData)
                     <div class="content-product__card">
                         <a href="#"><div class="content-product__card__image">
-                            <img src="/img/produk/produkin.png" alt="">
+                            <img src="{{asset('storage/'.$productData->image)}}" alt="">
                         </div></a>
                         <div class="content-product__card__text">
-                            <h4><a href="#"> Nama Produk</a></h4>
-                            <p><a href="#">Deskripsi produk</a></p>
+                            <h4><a href="#"> {{ $productData->name }} </a></h4>
+                            <p><a href="#"> {{ $productData->description }} </a></p>
                         </div>
-                    </div>
-
-                    <div class="content-product__card">
-                        <a href="#"><div class="content-product__card__image">
-                            <img src="/img/produk/produkin2.png" alt="">
-                        </div></a>
-                        <div class="content-product__card__text">
-                            <h4><a href="#">Nama Produk</a></h4>
-                            <p><a href="#">Deskripsi produk</a></p>
-                        </div>
-                    </div>
-
-                    <div class="content-product__card">
-                        <a href="#"><div class="content-product__card__image">
-                            <img src="/img/produk/produkin3.png" alt="">
-                        </div></a>
-                        <div class="content-product__card__text">
-                            <h4><a href="#">Nama Produk</a></h4>
-                            <p><a href="#">Deskripsi produk</a></p>
-                        </div>
-                    </div>
-
-                    <div class="content-product__card">
-                        <a href="#"><div class="content-product__card__image">
-                            <img src="/img/produk/produkin4.png" alt="">
-                        </div></a>
-                        <div class="content-product__card__text">
-                            <a href="#"><h4>Nama Produk</h4></a>
-                            <a href="#"><p>Deskripsi produk</p></a>
-                        </div>
-                    </div>
-
-                    <div class="content-product__card">
-                        <a href="#"><div class="content-product__card__image">
-                            <img src="/img/produk/produkin5.png" alt="">
-                        </div></a>
-                        <div class="content-product__card__text">
-                            <a href="#"><h4>Nama Produk</h4></a>
-                            <a href="#"><p>Deskripsi produk</p></a>
-                        </div>
-                    </div>
-
-                    <div class="content-product__card">
-                        <a href="#"><div class="content-product__card__image">
-                            <img src="/img/produk/produkin6.png" alt="">
-                        </div></a>
-                        <div class="content-product__card__text">
-                            <a href="#"><h4>Nama Produk</h4></a>
-                            <a href="#"><p>Deskripsi produk</p></a>
-                        </div>
-                    </div>
+                    </div>   
+                @endforeach             
             </div>
         </div>
 

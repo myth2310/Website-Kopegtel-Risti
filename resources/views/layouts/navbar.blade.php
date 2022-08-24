@@ -12,11 +12,11 @@
         <a href="index.html"><img src="/img/icon/logo.png" alt=""></a>
     </div>
     <ul class="nav-items">
-        <li class="nav-item"><h3><a class="active" href="index.html">Beranda</a></h3></li>
-        <li class="nav-item"><h3><a href="aboutus">Tentang kami</a></h3></li>
-        <li class="nav-item"><h3><a  href="product">Produk</a></h3></li>
-        <li class="nav-item"><h3><a href="activity">Kegiatan</a></h3></li>
-        <li class="nav-item"><h3><a href="contact">Hubungi kami</a></h3></li>
+        <li class="nav-item"><h3><a class="active" href="/Kopegtel-Risti">Beranda</a></h3></li>
+        <li class="nav-item"><h3><a href="/Kopegtel-Risti/aboutus">Tentang kami</a></h3></li>
+        <li class="nav-item"><h3><a href="/Kopegtel-Risti/product">Produk</a></h3></li>
+        <li class="nav-item"><h3><a href="/Kopegtel-Risti/activity">Kegiatan</a></h3></li>
+        <li class="nav-item"><h3><a href="/Kopegtel-Risti/contact">Hubungi kami</a></h3></li>
     </ul>
 </nav>
 

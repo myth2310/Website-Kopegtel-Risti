@@ -7,7 +7,9 @@
 >   
     <div class="card">
         <div class="card-header">
-            <h3>Tambah Produk Baru</h3>
+            <h3>
+                {{isset($product)?"Ubah Produk":"Tambah Produk Baru"}} 
+            </h3>
         </div>
 
         <div class="card-body">
@@ -52,7 +54,7 @@
                             class={{isset($product)?'file-input':'custom-file-input'}}
                             id="customFileLang" 
                             lang="en"
-                        required>
+                        {{isset($product)?"":"required"}}>
                         <label 
                             class="custom-file-label" 
                             for="customFileLang"
@@ -63,11 +65,7 @@
 
                 <div class="form-group">
                     <a href="/product" class="btn btn-secondary">
-                    @if (Session::get('success'))
-                        Kembali
-                    @else
                         Batal
-                    @endif
                     </a>                            
                     <button type="submit" class="btn btn-primary"> 
                         {{isset($product)?"Simpan":"Tambah Produk"}}                            

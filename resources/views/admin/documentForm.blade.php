@@ -7,7 +7,9 @@
 >   
     <div class="card">
         <div class="card-header">
-            <h3>Tambah Dokumen Baru</h3>
+            <h3>
+                {{isset($document)?"Ubah Dokumen":"Tambah Dokumen Baru"}} 
+            </h3>
         </div>
 
         <div class="card-body">
@@ -74,7 +76,7 @@
                             id="customFileLang" 
                             lang="id"
                             value="asdsad"
-                        required>
+                        {{isset($document)?"":"required"}}>
                         <label 
                             class="custom-file-label" 
                             for="customFileLang"
@@ -85,11 +87,7 @@
 
                 <div class="form-group">
                     <a href="/document" class="btn btn-secondary">
-                    @if (Session::get('success'))
-                        Kembali
-                    @else
                         Batal
-                    @endif
                     </a>                            
                     <button type="submit" class="btn btn-primary"> 
                         {{isset($document)?"Simpan":"Tambah Dokumen"}}                            

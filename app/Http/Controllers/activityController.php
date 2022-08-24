@@ -120,7 +120,6 @@ class activityController extends Controller
             "name.required" => "Please enter activity name",
             "date.required" => "Please enter date",
             "description.required" => "Please enter description",
-            "image.required" => "Please insert image",
         ]);
 
         if($request->hasFile('image')){

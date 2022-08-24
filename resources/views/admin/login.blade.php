@@ -26,26 +26,13 @@
     <!-- Argon JS -->
     <script type="text/javascript" src="{{ URL::asset('js/argon.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/argon.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/sweetalert2.min.js') }}"></script>
 
   <!-- Main content -->
   <div class="main-content">
     <!-- Header -->
     <div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">
       <div class="container">
-        <div class="header-body text-center mb-2">
-          <div class="row justify-content-center">
-            <div class="col-xl-5 col-lg-6 col-md-8 px-5">
-              <h1 class="text-white">Welcome!</h1>
-              <p class="text-lead text-white">Use these awesome forms to login or create new account in your project for free.</p>
-            </div>
-          </div>
         </div>
-      </div>
-      <div class="separator separator-bottom separator-skew zindex-100">
-        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
       </div>
     </div>
 
@@ -55,9 +42,13 @@
         <div class="col-lg-5 col-md-7">
           <div class="card bg-secondary border-0 mb-0">
 
-            <div class="card-header bg-transparent pb-5">
-              <div class="text-muted text-center mt-2"><small>Login with admin account</small></div>
-            </div>
+            <div class="header-body text-center mb-2">
+              <div class="row justify-content-center">
+                <div class="col col-lg-6 py-4">
+                  <h1>Welcome!</h1>
+                  <p class="text-lead">Use admin account to login</p>
+                </div>
+              </div>
 
             @if (Session::get('loginError'))
               <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -71,7 +62,7 @@
               </div>                        
             @endif
 
-            <div class="card-body px-lg-5 py-lg-5">
+            <div class="card-body px-lg-4 py-lg-2">
                 <form action="admin/login" method="POST">
                 @csrf
                   <div class="form-group mb-3">
@@ -129,8 +120,8 @@
   <footer class="py-5" id="footer-main">
     <div class="container">
       <div class="row align-items-center">
-        <div class="copyright text-center text-xl-left text-muted">
-        &copy; 2021 <a href="#" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+        <div class="copyright text-center text-muted">
+          Copyright 2022 - Kopegtel Risti 
         </div>
       </div>
     </div>

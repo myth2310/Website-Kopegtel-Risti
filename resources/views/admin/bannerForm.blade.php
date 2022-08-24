@@ -7,7 +7,9 @@
 >   
     <div class="card">
         <div class="card-header">
-            <h3>Tambah Gambar</h3>
+            <h3>
+                {{isset($banner)?"Ubah Banner":"Tambah Banner Baru"}} 
+            </h3>
         </div>
         
         <div class="card-body">
@@ -70,7 +72,7 @@
                             class={{isset($banner)?'file-input':'custom-file-input'}}
                             id="customFileLang" 
                             lang="en"
-                        required>
+                        {{isset($banner)?"":"required"}}>                        
                         <label 
                             class="custom-file-label" 
                             for="customFileLang"
@@ -81,11 +83,7 @@
 
                 <div class="form-group">
                     <a href="/banner" class="btn btn-secondary">
-                    @if (Session::get('success'))
-                        Kembali
-                    @else
                         Batal
-                    @endif
                     </a>                            
                     <button type="submit" class="btn btn-primary"> 
                         {{isset($banner)?"Simpan":"Tambah Gambar"}}                            
