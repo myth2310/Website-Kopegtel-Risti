@@ -27,8 +27,11 @@
                     <h4><a href="#contact" class="button-primary">HUBUNGI KAMI</a></h4>
                 </div>
             </div>
+<div class="content-header__image">
+    <img src="/img/icon/home.png" alt="" srcset="">
+</div>
 
-            @include('layouts.slider')
+            {{-- @include('layouts.slider') --}}
 
         </div>
         </div>
@@ -46,7 +49,7 @@
         <div class="frame2">
         <div class="content-about">
             <div class="content-about-text">
-                <a href="about.html"><h1 id="about" class="content-about-text__title">Tentang KOPEGTEL RISTI</h1></a>
+                <h1 id="about" class="content-about-text__title">Tentang KOPEGTEL RISTI</h1>
                 <p class="content-about-text__content">
                     KOPEGTEL RISTI merupakan Koperasi Pegawai Telkom Divisi Riset Teknologi Informasi yang bertujuan untuk memajukan kesejahteraan anggota secara khusus, serta masyarakat secara umum. Selain itu, KOPEGTEL RisTI ikut serta dalam membangun tatanan perekonomian nasional dengan tujuan mewujudkan masyarakat yang maju, adil dan makmur berlandaskan Pancasila dan Undang Undang Dasar 1945. 
                 </p>
@@ -55,7 +58,7 @@
         </div>
         
         <div class="content-product">
-            <a href="product.html"><h1 id="product" class="content-product__title">Produk Kami</h1></a>
+            <h1 id="product" class="content-product__title">Produk Kami</h1>
             <div class="content-product__card-container">
                 @foreach ($product as $productData)
                     <div class="content-product__card">
@@ -72,7 +75,7 @@
         </div>
 
         <div class="content-activity">
-            <a href="activity.html"><h1 id="activity" class="content-activity__title">Kegiatan Kami</h1></a>
+            <h1 id="activity" class="content-activity__title">Kegiatan Kami</h1>
                 <div class="content-activity__card-container">
                     <div class="content-activity__card">
                         <div class="content-activity__card__image">
@@ -113,7 +116,7 @@
 
         <div class="content-contact">
             <div class="content-contact__alltext">
-                <a href="contact.html"><h1 id="contact" class="content-contact__title">Hubungi Kami</h1></a>
+                <h1 id="contact" class="content-contact__title">Hubungi Kami</h1>
                 <p>Hubungi kami untuk informasi lebih lengkap
                 melalui kolom formulir di bawah ini</p>
             </div>

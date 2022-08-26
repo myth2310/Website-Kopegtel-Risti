@@ -192,10 +192,10 @@ gap: 10px;
 .content-about-text a, .content-product a, .content-activity a, .content-contact__alltext a{
   text-decoration: none;
 }
-.content-about-text a:hover, .content-product__title:hover, .content-activity__title:hover, .content-contact__alltext a:hover{
+/* .content-about-text a:hover, .content-product__title:hover, .content-activity__title:hover, .content-contact__alltext a:hover{
   background-color: #007EC6;
   color: #FFFFFF;
-}
+} */
 .content-about-text__content, .frame-partner-title{
   font-size: 20px;
   text-align: center;
@@ -563,6 +563,11 @@ textarea {
   gap: 10px;
 
 }
+.frame-partner{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 .frame-partner-image{
   display: flex;
   justify-content: center;
@@ -667,6 +672,27 @@ height: 60px;
   color: #F6F9FC;
   font-size: 13px;
 }
+
+.pagination{
+  display: flex;
+  gap: 1rem;
+
+}
+.pagination-item{
+  background-color:  white;
+  display: flex;
+  border: solid #DEE2E6 0.15rem;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.pagination-item:hover{
+  background-color:#5E72E4 ;
+  color: white;
+}
+
 
 /**
  *
