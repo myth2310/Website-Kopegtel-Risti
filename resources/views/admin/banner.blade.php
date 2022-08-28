@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-6 text-right">
                     <a href="/banner/create" class="btn btn-sm btn-primary btn-round btn-icon">               
-                    <span class="btn-inner--text">Add New Image</span>
+                    <span class="btn-inner--text">Tambah Banner</span>
                     </a>
                 </div>
             </div>

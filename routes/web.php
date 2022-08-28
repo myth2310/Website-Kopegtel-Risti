@@ -19,8 +19,10 @@ $router->group([
     Route::get('/aboutus', '\App\Http\Controllers\enduserController@aboutus');
     Route::get('/product', '\App\Http\Controllers\enduserController@product');
     Route::get('/activity', '\App\Http\Controllers\enduserController@activity');
+    Route::get('/activity-detail/{id}', '\App\Http\Controllers\enduserController@activityDetail');
     Route::get('/contact', '\App\Http\Controllers\enduserController@contact');
     Route::post('/send-message', '\App\Http\Controllers\messageController@store');
+    Route::get('/download/{id}', '\App\Http\Controllers\enduserController@download');
 });
 
 // ADMIN 

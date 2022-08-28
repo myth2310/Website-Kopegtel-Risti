@@ -95,7 +95,7 @@
                                 <p>Diunggah pada 31 Mei 2022</p>
                             </div>
                             <div class="content-bottom-card-button">
-                                <a href="#">Unduh</a>
+                                <a href="/Kopegtel-Risti/download/11">Unduh</a>
                             </div>
                         </div>
 
@@ -105,7 +105,7 @@
                                 <p>Diunggah pada 24 Mei 2022</p>
                             </div>
                             <div class="content-bottom-card-button">
-                                <a href="#">Unduh</a>
+                                <a href="/Kopegtel-Risti/download/1">Unduh</a>
                             </div>
                         </div>
 

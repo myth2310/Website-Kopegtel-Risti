@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Models\member;
 use App\Models\product;
 use App\Models\activity;
 use App\Models\document;
 use App\Models\banner;
+use Response;
 
 class enduserController extends Controller
 {
@@ -59,11 +62,18 @@ class enduserController extends Controller
         $activity =  activity:: find($id);
         $data['activity'] = $activity;
         
-        return view('visitor.activity', $data);  
+        return view('visitor.activity-detail', $data);  
     }
 
     public function contact()
     {  
         return view('visitor.contact');  
+    }
+
+    public function download(Request $request, $id)
+    {
+        $document = document:: find($id);
+
+        return Storage::download($document->file, $document->fileName.".".$document->fileType);
     }
 }
