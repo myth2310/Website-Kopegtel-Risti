@@ -1,6 +1,21 @@
+<!--
+=========================================================
+* Argon Dashboard PRO - v1.2.1
+=========================================================
+* Product Page: https://www.creative-tim.com/product/argon-dashboard-pro
+
+
+* Copyright 2021 Creative Tim (http://www.creative-tim.com)
+* Coded by www.creative-tim.com
+
+
+
+=========================================================
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
 <!DOCTYPE html>
 <html lang="en">
-    <head>s
+    <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 

@@ -24,7 +24,7 @@
                         </div>
                         <div class="content-activity__card__text">
                             <p>31 Mei 2022</p>
-                            <a class="activity-card-text-title" href="activity-detail.html"><h4>Pembagian Parcel</h4></a>
+                            <a class="activity-card-text-title" href="/Kopegtel-Risti/activity-detail/1"><h4>Pembagian Parcel</h4></a>
                             <p>Pembagian Parcel dilaksanakan dalam rangka Bulan Suci Ramadhan. Ketua KOPEGTEL RisTI memberikan parcel ...</p>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
                         </div>
                         <div class="content-activity__card__text">
                             <p>31 Mei 2022</p>
-                            <a class="activity-card-text-title" href="activity-detail.html"><h4>Pembagian Parcel</h4></a>
+                            <a class="activity-card-text-title" href="/Kopegtel-Risti/activity-detail"><h4>Pembagian Parcel</h4></a>
                             <p>Pembagian Parcel dilaksanakan dalam rangka Bulan Suci Ramadhan. Ketua KOPEGTEL RisTI memberikan parcel ...</p>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                         </div>
                         <div class="content-activity__card__text">
                             <p>31 Mei 2022</p>
-                            <a class="activity-card-text-title" href="activity-detail.html"><h4>Pembagian Parcel</h4></a>
+                            <a class="activity-card-text-title" href="/Kopegtel-Risti/activity-detail"><h4>Pembagian Parcel</h4></a>
                             <p>Pembagian Parcel dilaksanakan dalam rangka Bulan Suci Ramadhan. Ketua KOPEGTEL RisTI memberikan parcel ...</p>
                         </div>
                     </div>

@@ -32,20 +32,39 @@
                         @endif
                     @endfor
                 </ol>
-                <h6 
-                    class="h2 text-white d-inline-block"
+                <div 
+                    class="h4 text-white d-inline-block"
+                    id="title"
                     style="margin: 0px"
                 >
                     @if ($prev == "")
-                        {{$now}}
+                        <script>
+                            var message = "<?php echo $now ?>";
+                            window.onload = event => {
+                                message = textTranslate(message);    
+                                document.getElementById("title").innerHTML = message;                   
+                            };         
+                        </script>
                     @else       
                         @if ($now =="Create")                            
-                            {{$now}} New {{$prev}}
+                            <script>
+                                var message = "<?php echo $prev ?>";
+                                window.onload = event => {
+                                    message = textTranslate(message);    
+                                    document.getElementById("title").innerHTML = "Tambah " + message + " Baru";                   
+                                };         
+                            </script>
                         @else  
-                            {{$now}} {{$prev}}
+                            <script>
+                                var message = "<?php echo $prev ?>";
+                                window.onload = event => {
+                                    message = textTranslate(message);    
+                                    document.getElementById("title").innerHTML = "Ubah " + message;                   
+                                };         
+                            </script>
                         @endif                 
                     @endif
-                </h6>             
+                </div>             
             </div>
         </ul>
 
@@ -60,17 +79,65 @@
                         </span>
                         </div>
                     </div>
-                </a>                    
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-default_dropdown_1">
-                    <form action="/logout" method="POST">
-                    @csrf
-                        <button type="submit" class="dropdown-item">
+                </a>
+                <div 
+                    class="dropdown-menu dropdown-menu-right" 
+                    aria-labelledby="navbar-default_dropdown_1"
+                >
+                    {{-- Logout --}}
+                    <button 
+                        class="dropdown-item logout"
+                    >
+                        <form 
+                            action="/logout" 
+                            id="logout"
+                            method="POST"
+                        >
+                            @csrf
+                        </form>
                             Logout
-                        </button>
-                    </form>
+                    </button>
                 </div>
             </li>
         </ul>
 
     </div>
+    <script type="text/javascript">
+        function textTranslate( param ) {
+            if (param == "Dashboard") {
+                return "Dashboard";
+            } else if (param == "Member") {
+                return "Anggota";
+            } else if (param == "Activity") {
+                return "Kegiatan";
+            } else if (param == "Product") {
+                return "Produk";
+            } else if (param == "Document") {
+                return "Dokumen";
+            } else if (param == "Message") {
+                return "Pesan";
+            } else if (param == "Banner") {
+                return "Banner";
+            }
+        }   
+
+        $('.logout').click(function(e) {        
+        swal({
+            title: "Logout",
+            text: "Anda yakin ingin logout?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-primary",
+            confirmButtonText: "Logout",
+            cancelButtonText: "Batal",
+            closeOnConfirm: true,
+            closeOnCancel: true,
+            })
+            .then((willlogout) => {
+                if (willlogout.value === true) {     
+                    $(`#logout`).submit();
+                }
+            });
+        });  
+    </script>
 </nav>

@@ -89,7 +89,7 @@
                     <div class="row">
                         <div class="col">
                             <h5 class="card-title text-uppercase text-muted mb-0">
-                                Anggota Pensiunan
+                                Anggota Pensiun
                             </h5>
                             <span class="h1 font-weight-bold mb-0">
                                 {{$inactive_member}}
