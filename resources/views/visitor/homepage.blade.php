@@ -114,38 +114,7 @@
         </div>
 
 
-        <div class="content-contact">
-            <div class="content-contact__alltext">
-                <h1 id="contact" class="content-contact__title">Hubungi Kami</h1>
-                <p>Hubungi kami untuk informasi lebih lengkap
-                melalui kolom formulir di bawah ini</p>
-            </div>
-            <div class="content-contact__box">
-                <div>
-                    <form class="content-contact-form">
-                    <div class="elem-group">
-                      <label for="name">NamA</label>
-                      <input type="text" id="name" name="visitor_name" placeholder="Kopegtel Risti" pattern=[A-Z\sa-z]{3,20} required>
-                    </div>
-                    <div class="elem-group">
-                      <label for="email">E-mail</label>
-                      <input type="email" id="email" name="visitor_email" placeholder="kopegtelristi@gmail.com" required>
-                    </div>
-                    <div class="elem-group">
-                      <label for="title">Subjek</label>
-                      <input type="text" id="title" name="email_title" required placeholder="Subjek" pattern=[A-Za-z0-9\s]{8,60}>
-                    </div>
-                    <div class="elem-group">
-                      <label for="message">Pesan</label>
-                      <textarea id="message" name="visitor_message" placeholder="Tulis pesanmu disini.." required></textarea>
-                    </div>
-                    </form>
-                </div>
-                <div class="button-message">
-                    <h4 class="button-primary"><a href="#">Kirim Pesan</a></h4>
-                </div>
-            </div>
-        </div>
+        @include('layouts.contactForm')
 
         </div>
         

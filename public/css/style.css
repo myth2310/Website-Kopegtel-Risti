@@ -96,6 +96,7 @@ main {
 }
 .frame1{
   background-color: #FEFEFE;
+  height: 620px;
 }
 
 .content-header {
@@ -196,7 +197,7 @@ gap: 10px;
   background-color: #007EC6;
   color: #FFFFFF;
 } */
-.content-about-text__content, .frame-partner-title{
+.content-about-text__content{
   font-size: 20px;
   text-align: center;
   /* Inside auto layout */
@@ -567,6 +568,22 @@ textarea {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  height: 175px;
+  gap: 16px;
+}
+
+.frame-partner-title{
+  font-weight: 600;
+font-size: 15.2px;
+line-height: 21px;
+/* identical to box height */
+
+text-align: center;
+letter-spacing: 0.03em;
+
+/* Gray/700 */
+
+color: #525F7F;
 }
 .frame-partner-image{
   display: flex;

@@ -13,16 +13,20 @@
     @include('layouts.navbar')
 
     <main>
-        <div class="frame22">
-            <div class="content-about-top">
-                <div class="content-about-top-text">
-                    <h1>Tentang KOPEGTEL RISTI</h1>
+        <div class="frame1">
+            <div class="content-header">
+                <div class="content-header__text">
+                    <div class="text_welcome">
+                        <h1>Tentang KOPEGTEL RISTI</h1>
+                        <p>KOPEGTEL RISTI merupakan Koperasi Pegawai Telkom Divisi Riset Teknologi Informasi yang bertujuan untuk memajukan kesejahteraan anggota secara khusus, serta masyarakat secara umum. Selain itu, KOPEGTEL RisTI ikut serta dalam membangun tatanan perekonomian nasional dengan tujuan mewujudkan masyarakat yang maju, adil dan makmur berlandaskan Pancasila dan Undang Undang Dasar 1945 </p>
+                    </div>
                 </div>
-                <div class="content-about-top-text__content">
-                    <p >
-                        KOPEGTEL RISTI merupakan Koperasi Pegawai Telkom Divisi Riset Teknologi Informasi yang bertujuan untuk memajukan kesejahteraan anggota secara khusus, serta masyarakat secara umum. Selain itu, KOPEGTEL RisTI ikut serta dalam membangun tatanan perekonomian nasional dengan tujuan mewujudkan masyarakat yang maju, adil dan makmur berlandaskan Pancasila dan Undang Undang Dasar 1945. 
-                    </p>
+                            
+                <div class="content-header__image">
+                    <img src="/img/icon/about.png" alt="" srcset="">
                 </div>
+                
+            </div>
             </div>
 
             <div class="content-about-center">
