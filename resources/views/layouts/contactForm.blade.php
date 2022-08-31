@@ -15,9 +15,11 @@
                         {{ Session::get('fail') }}
                     </div>                        
                 @endif
-        <div class="content-contact__box">
+        <div class="content-contact__box" style="gap: 1rem">
 
-            <form class="content-contact-form" action="store" method="POST">
+            <form action="/Kopegtel-Risti/send-message" method="POST" enctype="multipart/form-data" style="gap: 24px">
+            @csrf
+            @method('POST')
                 <div class="elem-group">
                     <label for="" class="form-control-label">Nama</label>
                         <input 
@@ -74,11 +76,11 @@
                         @enderror
                 </div>
 
+                <div class="button-message">
+                    <h4 class="button-primary"><a href="/Kopegtel-Risti/send-message">Kirim Pesan</a></h4>
+                </div>
             </form>
 
-            <div class="button-message">
-                <h4 class="button-primary"><a href="#">Kirim Pesan</a></h4>
-            </div>
          </div>
     <div>
 </div>

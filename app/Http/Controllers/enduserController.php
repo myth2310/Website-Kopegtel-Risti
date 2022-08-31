@@ -11,6 +11,7 @@ use App\Models\product;
 use App\Models\activity;
 use App\Models\document;
 use App\Models\banner;
+use App\Models\message;
 use Response;
 
 class enduserController extends Controller
@@ -39,6 +40,39 @@ class enduserController extends Controller
             'member' => $member,
             'document' => $document,
         ]);
+    }
+
+    public function create()
+    {
+        return view('visitor.contactForm', [
+            'method'=> "POST",
+            'action'=> "store",
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $request -> validate([
+            'name' => 'required',
+            'email' => 'required',
+            'subject' => 'required',
+            'message' => 'required'
+        ],
+        [
+            "name.required" => "Please enter your name",
+            "email.required" => "Please enter your email",
+            "subject.required" => "Please enter the subject",
+            "message.required" => "Please enter your message",
+        ]);
+
+        $message = message::create([
+            'name' => $request["name"],
+            'email' => $request["email"],
+            'subject' => $request["subject"],
+            'message' => $request["message"],
+        ]);
+
+        return redirect('/kopegtel-Risti/contact') -> with('Berhasil', "Pesan anda telah dikirim!");
     }
 
     public function product()
@@ -77,3 +111,4 @@ class enduserController extends Controller
         return Storage::download($document->file, $document->fileName.".".$document->fileType);
     }
 }
+    

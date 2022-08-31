@@ -21,7 +21,8 @@ $router->group([
     Route::get('/activity', '\App\Http\Controllers\enduserController@activity');
     Route::get('/activity-detail/{id}', '\App\Http\Controllers\enduserController@activityDetail');
     Route::get('/contact', '\App\Http\Controllers\enduserController@contact');
-    Route::post('/send-message', '\App\Http\Controllers\messageController@store');
+    Route::get('/create', 'App\Http\Controllers\enduserController@create');
+    Route::post('/send-message', '\App\Http\Controllers\enduserController@store');
     Route::get('/download/{id}', '\App\Http\Controllers\enduserController@download');
 });
 

@@ -14,61 +14,7 @@
 
     <main>
         
-        <div class="content-product2">
-            <div class="content-product__title2">
-                <h1 >Produk Kami</h1>
-            </div>
-            <div class="content-product__card-container2">
-                <div class="content-product__card2">
-                    <div class="content-product__card__image2">
-                        <img src="src/images/produk/produkhal.png" alt="">
-                    </div>
-                    <div class="content-product__card__text2">
-                    <div class="content-product__card__text2-title">
-                        <h4>Nama Produk</h4>
-                        <p>22 April 2022</p>
-                    </div>
-                    <div class="content-product__card__text2-body">
-                        <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus rerum non esse, aperiam facere eligendi!</span>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="content-product__card2">
-                    <div class="content-product__card__image2">
-                        <img src="src/images/produk/produkhal.png" alt="">
-                    </div>
-                    <div class="content-product__card__text2">
-                    <div class="content-product__card__text2-title">
-                        <h4>Nama Produk</h4>
-                        <p>22 April 2022</p>
-                    </div>
-                    <div class="content-product__card__text2-body">
-                        <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus rerum non esse, aperiam facere eligendi!</span>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="content-product__card2">
-                    <div class="content-product__card__image2">
-                        <img src="src/images/produk/produkhal.png" alt="">
-                    </div>
-                    <div class="content-product__card__text2">
-                    <div class="content-product__card__text2-title">
-                        <h4>Nama Produk</h4>
-                        <p>22 April 2022</p>
-                    </div>
-                    <div class="content-product__card__text2-body">
-                        <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus rerum non esse, aperiam facere eligendi!</span>
-                    </div>
-                    </div>
-                </div>
-
-                
-
-                    
-            </div>
-        </div>
+        @include('layouts.product')
         
     </main>
     

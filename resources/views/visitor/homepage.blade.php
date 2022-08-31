@@ -27,11 +27,11 @@
                     <h4><a href="#contact" class="button-primary">HUBUNGI KAMI</a></h4>
                 </div>
             </div>
-<div class="content-header__image">
+{{-- <div class="content-header__image">
     <img src="/img/icon/home.png" alt="" srcset="">
-</div>
+</div> --}}
 
-            {{-- @include('layouts.slider') --}}
+            @include('layouts.slider')
 
         </div>
         </div>
@@ -57,62 +57,9 @@
         </div>
         </div>
         
-        <div class="content-product">
-            <h1 id="product" class="content-product__title">Produk Kami</h1>
-            <div class="content-product__card-container">
-                @foreach ($product as $productData)
-                    <div class="content-product__card">
-                        <a href="#"><div class="content-product__card__image">
-                            <img src="{{asset('storage/'.$productData->image)}}" alt="">
-                        </div></a>
-                        <div class="content-product__card__text">
-                            <h4><a href="#"> {{ $productData->name }} </a></h4>
-                            <p><a href="#"> {{ $productData->description }} </a></p>
-                        </div>
-                    </div>   
-                @endforeach             
-            </div>
-        </div>
+        @include('layouts.product')
 
-        <div class="content-activity">
-            <h1 id="activity" class="content-activity__title">Kegiatan Kami</h1>
-                <div class="content-activity__card-container">
-                    <div class="content-activity__card">
-                        <div class="content-activity__card__image">
-                            <img src="/img/kegiatan/parcel.png" alt="">
-                        </div>
-                        <div class="content-activity__card__text">
-                            <p>31 Mei 2022</p>
-                            <a class="activity-card-text-title" href="activity-detail.html"><h4>Pembagian Parcel</h4></a>
-                            <p>Pembagian Parcel dilaksanakan dalam rangka Bulan Suci Ramadhan. Ketua KOPEGTEL RisTI memberikan parcel ...</p>
-                        </div>
-                    </div>
-
-                    <div class="content-activity__card">
-                        <div class="content-activity__card__image">
-                            <img src="/img/kegiatan/rapat.png" alt="">
-                        </div>
-                        <div class="content-activity__card__text">
-                            <p>31 Mei 2022</p>
-                            <a class="activity-card-text-title" href="#"><h4>Rapat Anggota Tahunan</h4></a>
-                            <p>Rapat Anggota Tahunan merupakan agenda KOPEGTEL RisTI yang bertujuan untuk melakukan evaluasi tahunan serta ...</p>
-                        </div>
-                    </div>
-
-                    <div class="content-activity__card">
-                        <div class="content-activity__card__image">
-                            <img src="/img/kegiatan/sosialisasi.png" alt="">
-                        </div>
-                        <div class="content-activity__card__text">
-                            <p>31 Mei 2022</p>
-                            <a class="activity-card-text-title" href="#"><h4>Sosialisasi Pajak dan Rekonsiliasi</h4></a>
-                            <p>Sosialisasi pajak dan rekonsiliasi merupakan kegiatan memberikan informasi kepada anggota mengenai ...</p>
-                        </div>
-                    </div>
-                    
-            </div>
-        </div>
-
+        @include('layouts.activity')
 
         @include('layouts.contactForm')
 

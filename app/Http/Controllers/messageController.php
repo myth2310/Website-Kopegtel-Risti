@@ -28,7 +28,7 @@ class messageController extends Controller
      */
     public function create()
     {
-        return view('admin.NamaFileEndUserGaes', [
+        return view('visitor.contact', [
             'method'=> "POST",
             'action'=> "store",
         ]);

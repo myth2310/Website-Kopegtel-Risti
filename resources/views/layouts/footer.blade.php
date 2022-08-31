@@ -18,9 +18,9 @@
         <div class="footer-link">
             <h5>Link</h5>
         <div class="footer-link-click">
-            <a href="about.html"><p>Tentang Kami</p></a>
-            <a href="product.html"><p>Produk</p></a>
-            <a href="activity.html"><p>Kegiatan</p></a>
+            <a href="/Kopegtel-Risti/aboutus"><p>Tentang Kami</p></a>
+            <a href="/Kopegtel-Risti/product"><p>Produk</p></a>
+            <a href="/Kopegtel-Risti/activity"><p>Kegiatan</p></a>
         </div>
         </div>
 
