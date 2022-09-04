@@ -26,7 +26,7 @@ $router->group([
     Route::get('/download/{id}', '\App\Http\Controllers\enduserController@download');
 });
 
-// ADMIN 
+// ADMIN
 //--- Authentication ---
 Route::post('/logout', '\App\Http\Controllers\authController@logout')->middleware('auth');
 

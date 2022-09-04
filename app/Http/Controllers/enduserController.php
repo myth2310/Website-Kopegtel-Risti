@@ -42,6 +42,11 @@ class enduserController extends Controller
         ]);
     }
 
+    public function contact()
+    {  
+        return view('visitor.contact');  
+    }
+
     public function create()
     {
         return view('visitor.contactForm', [
@@ -72,7 +77,7 @@ class enduserController extends Controller
             'message' => $request["message"],
         ]);
 
-        return redirect('/kopegtel-Risti/contact') -> with('Berhasil', "Pesan anda telah dikirim!");
+        return back() -> with('success', "Pesan anda telah dikirim!");
     }
 
     public function product()
@@ -97,11 +102,6 @@ class enduserController extends Controller
         $data['activity'] = $activity;
         
         return view('visitor.activity-detail', $data);  
-    }
-
-    public function contact()
-    {  
-        return view('visitor.contact');  
     }
 
     public function download(Request $request, $id)

@@ -38,7 +38,9 @@
                     @foreach ($result as $res)
                         <tr>
                             <td> {{ $res->name }} </td>
-                            <td> {{ $res->email }} </td>
+                            <td>
+                                <a href="mailto:{{ $res->email }}">  {{ $res->email }} </a>                                
+                            </td>
                             <td> {{ $res->subject }} </td>
                             <td style=
                                 "word-wrap: break-all; 
