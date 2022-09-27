@@ -23,6 +23,10 @@ class enduserController extends Controller
         $banner = DB::select('SELECT * FROM banners WHERE status = "yes"');
         $total_banner = banner::all() -> count();
 
+        if (empty($banner)) (
+            $total_banner = 0
+        );
+
         return view('visitor.homepage', [
             'product' => $product,
             'activity' => $activity,
@@ -33,7 +37,7 @@ class enduserController extends Controller
 
     public function aboutus()
     {
-        $member = DB::select('SELECT * FROM members WHERE position <> "Anggota"');
+        $member = DB::select('SELECT * FROM members WHERE position <> "Anggota" ORDER BY FIELD(position, "ketua", "Sekretaris", "Bendahara", "Korbid Usaha 1", "Korbid Usaha 2")');
         $document = DB::select('SELECT * FROM documents WHERE status = "yes"');
 
         return view('visitor.about', [

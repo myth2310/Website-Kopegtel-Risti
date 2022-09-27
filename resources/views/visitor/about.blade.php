@@ -37,52 +37,7 @@
                 <div class="content-about-center-body">
                     <div class="content-about-center__card-container">
 
-                        {{-- @include('layouts.member') --}}
-                        <div class="content-about-center__card">
-                            <div class="content-about-center__card__image">
-                                <img src="src/images/pengurus/ketua.png" alt="">
-                            </div>
-                            <div class="content-about-center__card__text">
-                                <h4>David Cuh Sihotang</h4>
-                                <p>Ketua</p>
-                            </div>
-                        </div>
-                        <div class="content-about-center__card">
-                            <div class="content-about-center__card__image">
-                                <img src="src/images/pengurus/sekretaris.png" alt="">
-                            </div>
-                            <div class="content-about-center__card__text">
-                                <h4>Shinta D. Lukitasari​</h4>
-                                <p>Sekretaris</p>
-                            </div>
-                        </div>
-                        <div class="content-about-center__card">
-                            <div class="content-about-center__card__image">
-                                <img src="src/images/pengurus/bendahara.png" alt="">
-                            </div>
-                            <div class="content-about-center__card__text">
-                                <h4>Eliandri S. Wulandari​</h4>
-                                <p>Bendahara</p>
-                            </div>
-                        </div>
-                        <div class="content-about-center__card">
-                            <div class="content-about-center__card__image">
-                                <img src="src/images/pengurus/korbid1.png" alt="">
-                            </div>
-                            <div class="content-about-center__card__text">
-                                <h4>Dian Hendrayana​</h4>
-                                <p>Korbid Usaha 1</p>
-                            </div>
-                        </div>
-                        <div class="content-about-center__card">
-                            <div class="content-about-center__card__image">
-                                <img src="src/images/pengurus/korbid2.png" alt="">
-                            </div>
-                            <div class="content-about-center__card__text">
-                                <h4>Syawaludin Rachmatullah</h4>
-                                <p>Korbid Usaha 2</p>
-                            </div>
-                        </div>
+                        @include('layouts.member')
 
                     </div>
                 </div>
@@ -95,47 +50,22 @@
                     </div>
 
                     <div class="content-about-bottom-body">
-                        <div class="content-about-bottom-card">
-                            <div class="content-bottom-card-title">
-                                <h2>ADR/ART Kopegtel</h2>
-                                <p>Diunggah pada 31 Mei 2022</p>
+                        @foreach ($document as $res)
+                            <div class="content-about-bottom-card">
+                                <div class="content-bottom-card-title">
+                                    <h2>
+                                        {{ $res->fileName }}
+                                    </h2>
+                                    <p>
+                                        {{substr($res->created_at, 0, 10)}}
+                                    </p>
+                                </div>
+                                <div class="content-bottom-card-button">
+                                    <a href="/Kopegtel-Risti/download/{{ $res->document_id }}">Unduh</a>
+                                </div>
                             </div>
-                            <div class="content-bottom-card-button">
-                                <a href="/Kopegtel-Risti/download/1">Unduh</a>
-                            </div>
-                        </div>
-
-                        <div class="content-about-bottom-card">
-                            <div class="content-bottom-card-title">
-                                <h2>Daftar Anggota Kopegtel</h2>
-                                <p>Diunggah pada 24 Mei 2022</p>
-                            </div>
-                            <div class="content-bottom-card-button">
-                                <a href="/Kopegtel-Risti/download/1">Unduh</a>
-                            </div>
-                        </div>
-
-                        <div class="content-about-bottom-card">
-                            <div class="content-bottom-card-title">
-                                <h2>Laporan Keuangan I/2022</h2>
-                                <p>Diunggah pada 22 Mei 2022</p>
-                            </div>
-                            <div class="content-bottom-card-button">
-                                <a href="#">Unduh</a>
-                            </div>
-                        </div>
-
-                        <div class="content-about-bottom-card">
-                            <div class="content-bottom-card-title">
-                                <h2>Laporan Keuangan II/2022</h2>
-                                <p>Diunggah pada 20 Mei 2022</p>
-                            </div>
-                            <div class="content-bottom-card-button">
-                                <a href="#">Unduh</a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
-    
                 </div>
         </div>
         

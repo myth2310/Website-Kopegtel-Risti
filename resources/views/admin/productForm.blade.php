@@ -23,6 +23,7 @@
                         name="name" 
                         id="name" 
                         placeholder="Enter name..."
+                        maxlength="60"
                         class="form-control @error('name') is-invalid @enderror" 
                         value="{{isset($product)?$product->name:old('name')}}"
                     >
@@ -37,6 +38,7 @@
                         name="description" 
                         id="exampleFormControlTextarea1" 
                         rows="3" 
+                        maxlength="150"
                         placeholder="Enter description..."
                         class="form-control @error('description') is-invalid @enderror"
                     >{{isset($product)?$product->description:old('description')}}</textarea>

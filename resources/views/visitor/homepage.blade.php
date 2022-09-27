@@ -27,9 +27,9 @@
                     <h4><a href="#contact" class="button-primary">HUBUNGI KAMI</a></h4>
                 </div>
             </div>
-{{-- <div class="content-header__image">
-    <img src="/img/icon/home.png" alt="" srcset="">
-</div> --}}
+            {{-- <div class="content-header__image">
+                <img src="/img/icon/home.png" alt="" srcset="">
+            </div> --}}
 
             @include('layouts.slider')
 

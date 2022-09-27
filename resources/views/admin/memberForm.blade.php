@@ -23,6 +23,7 @@
                         name="name" 
                         id="name" 
                         placeholder="Enter name..."
+                        maxlength="60"
                         class="form-control @error('name') is-invalid @enderror" 
                         value="{{ isset($member)?$member->name:old('name') }}"
                     >
@@ -97,6 +98,7 @@
                         id="exampleFormControlTextarea1" 
                         rows="3" 
                         placeholder="Enter address..."
+                        maxlength="60"
                         class="form-control @error('address') is-invalid @enderror" 
                     >{{ isset($member)?$member->address:old('address') }}</textarea>
                     @error('address')

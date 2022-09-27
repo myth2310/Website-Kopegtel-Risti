@@ -23,6 +23,7 @@
                         name="name" 
                         id="name" 
                         placeholder="Enter name..."
+                        maxlength="60"
                         class="form-control @error('name') is-invalid @enderror" 
                         value="{{isset($banner)?$banner->name:old('name')}}"
                     >

@@ -141,7 +141,13 @@
                             <td> {{ $res->name }} </td>
                             <td> {{ $res->email }} </td>
                             <td> {{ $res->phone }} </td>
-                            <td> {{ $res->address }} </td>
+                            <td style=
+                                "max-width: 240px; 
+                                word-wrap: break-word;
+                                overflow: hidden;"                    
+                            > 
+                                {{ $res->address }} 
+                            </td>
                             <td> {{ $res->position }} </td>
                             <td> {{ $res->status }} </td>
                         </tr>
@@ -178,7 +184,13 @@
                         <tr>
                             <td> {{ $res->name }} </td>
                             <td> {{ $res->date }} </td>
-                            <td> {{ $res->description }} </td>
+                            <td style=
+                                "max-width: 512px; 
+                                word-wrap: break-word;
+                                overflow: hidden;"                    
+                            >                                 
+                                {{ $res->description }} 
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

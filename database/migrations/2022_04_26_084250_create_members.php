@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id('member_id');
-            $table->string('name');
+            $table->string('name', 60);
             $table->string('email');
             $table->string('phone');
-            $table->string('address');
+            $table->string('address', 255);
             $table->string('position')->default('Anggota');
             $table->string('image')->default("");
             $table->string('status')->default('Aktif');

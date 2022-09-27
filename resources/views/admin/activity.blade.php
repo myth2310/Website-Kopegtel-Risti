@@ -44,7 +44,13 @@
                         <tr>
                             <td> {{ $res->name }} </td>
                             <td> {{ $res->date }} </td>
-                            <td> {{ $res->description }} </td>
+                            <td style=
+                                "max-width: 240px; 
+                                word-wrap: break-word;
+                                overflow: hidden;"                    
+                            > 
+                                {{ $res->description }} 
+                            </td>
                             <td> 
                                 <img 
                                     style="max-width: 76px", 

@@ -46,7 +46,7 @@ class documentController extends Controller
     {
         $request -> validate([
             'fileName' => 'required',
-            'file' => 'required|mimes:pdf,xlx,csv|max:2048',
+            'file' => 'required|mimes:pdf,xlx,xlsx,csv|max:2048',
         ], 
         [
             "fileName.required" => "Please enter document name",
@@ -110,7 +110,7 @@ class documentController extends Controller
         $validator = $request -> validate([
             'fileName' => 'required',
             'status' => 'required',
-            'file' => 'mimes:pdf,xlx,csv|max:2048',
+            'file' => 'mimes:pdf,xlx,xlsx,csv|max:2048',
         ], 
         [
             "fileName.required" => "Please enter document fileName",
@@ -118,7 +118,7 @@ class documentController extends Controller
 
         if($request->hasFile('file')){
             $request->validate([
-                'file' => 'required|mimes:pdf,xlx,csv|max:2048',
+                'file' => 'required|mimes:pdf,xlx,xlsx,csv|max:2048',
             ]);
             Storage::delete($document->file);
             $path = $request->file('file')->store('/files');

@@ -23,6 +23,7 @@
                         name="fileName" 
                         id="fileName" 
                         placeholder="Enter name..."
+                        maxlength="60"
                         class="form-control @error('fileName') is-invalid @enderror" 
                         value="{{isset($document)?$document->fileName:old('fileName')}}"
                     >

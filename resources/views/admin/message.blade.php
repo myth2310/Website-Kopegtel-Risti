@@ -43,8 +43,9 @@
                             </td>
                             <td> {{ $res->subject }} </td>
                             <td style=
-                                "word-wrap: break-all; 
-                                width: 160px; ;"
+                                "max-width: 320px; 
+                                word-wrap: break-word;
+                                overflow: hidden;"                    
                             > 
                                 {{ $res->message }} 
                             </td>
