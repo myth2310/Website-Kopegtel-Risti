@@ -13,26 +13,18 @@
 <body>
     @include('layouts.navbar')
 
-    <main style="flex-wrap: wrap">
-        @include('layouts.activity')
-        
-                    
-                    <ul class="pagination" style="justify-content: center; padding:1rem">
+    <main>
+        @include('layouts.activity')    
+                    {{-- <ul class="pagination" style="justify-content: center; padding:1rem">
                         <li class="pagination-item"><</li>
                         <li class="pagination-item">1</li>
                         <li class="pagination-item">2</li>
                         <li class="pagination-item">3</li>
                         <li class="pagination-item">4</li>
                         <li class="pagination-item">></li>
-                    </ul>
-                    
-            </div>
-        </div>
-        
+                    </ul> --}}
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> --}}
     @include('layouts.footer')
-
-        
 </body>
 </html>

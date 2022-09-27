@@ -77,7 +77,8 @@ class enduserController extends Controller
 
     public function product()
     {
-        $product = DB::select('SELECT * FROM products ORDER BY created_at DESC');
+        // $product = DB::select('SELECT * FROM products ORDER BY created_at DESC');
+        $product = DB::table('products')->paginate(9);
         $data['product'] = $product;
         
         return view('visitor.product', $data);  
@@ -85,7 +86,7 @@ class enduserController extends Controller
 
     public function activity()
     {
-        $activity = DB::select('SELECT * FROM activities ORDER BY created_at DESC');
+        $activity = DB::table('activities')->paginate(9);
         $data['activity'] = $activity;
         
         return view('visitor.activity', $data);  
@@ -109,6 +110,14 @@ class enduserController extends Controller
         $document = document:: find($id);
 
         return Storage::download($document->file, $document->fileName.".".$document->fileType);
+    }
+
+    public function show($id)
+    {
+        $activity =  activity:: find($id);
+        $data['activity'] = $activity;
+
+        return view('visitor.show');
     }
 }
     

@@ -1,6 +1,6 @@
 <div class="content-product">
     <h1 id="product" class="content-product__title">Produk Kami</h1>
-    <div class="content-product__card-container">
+    <div class="content-product__card-container" style="padding:3rem">
         @foreach ($product as $productData)
             <div class="content-product__card" style="">
                 <a href="#"><div class="content-product__card__image">
@@ -11,6 +11,8 @@
                     <p><a href="#"> {{ $productData->description }} </a></p>
                 </div>
             </div>   
-        @endforeach             
-    </div>
+        @endforeach
+    </div>      
+    {{ $product->Links() }}
+      
 </div>

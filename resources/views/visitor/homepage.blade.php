@@ -57,9 +57,9 @@
         </div>
         </div>
         
-        @include('layouts.product')
+        {{-- @include('layouts.product') --}}
 
-        @include('layouts.activity')
+        {{-- @include('layouts.activity') --}}
 
         @include('layouts.contactForm')
 

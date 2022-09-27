@@ -24,6 +24,7 @@ $router->group([
     Route::get('/create', 'App\Http\Controllers\enduserController@create');
     Route::post('/send-message', '\App\Http\Controllers\enduserController@store');
     Route::get('/download/{id}', '\App\Http\Controllers\enduserController@download');
+    Route::get('/show/{id}', '\App\Http\Controllers\enduserController@show')->name('activity.show');
 });
 
 // ADMIN 

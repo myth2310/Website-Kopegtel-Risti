@@ -15,7 +15,6 @@
         <div class="card-body">
             <form action="{{$action}}" method="POST" enctype="multipart/form-data">
             @csrf
-            @method('POST')
                 <input type="hidden" name="_method" value="{{$method}}">
                 <div class="form-group">
                     <label for="" class="form-control-label">Nama</label>
