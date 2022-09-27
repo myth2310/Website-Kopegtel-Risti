@@ -27,7 +27,7 @@ $router->group([
     Route::get('/show/{id}', '\App\Http\Controllers\enduserController@show')->name('activity.show');
 });
 
-// ADMIN 
+// ADMIN
 //--- Authentication ---
 Route::post('/logout', '\App\Http\Controllers\authController@logout')->middleware('auth');
 

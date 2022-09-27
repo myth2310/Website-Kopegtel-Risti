@@ -47,19 +47,24 @@
 
                 <div class="form-group">
                     <label class="form-control-label">Gambar</label>
+                    @if (isset($product))                        
+                        <p>
+                            Image uploaded: 
+                            <strong> {{$product->name}}{{substr($product->image,-4)}} </strong>
+                        </p>                      
+                    @endif                      
                     <div class="custom-file">
                         <input 
                             type="file" 
                             name="image" 
-                            class={{isset($product)?'file-input':'custom-file-input'}}
+                            class="custom-file-input"
                             id="customFileLang" 
                             lang="en"
                         {{isset($product)?"":"required"}}>
                         <label 
                             class="custom-file-label" 
                             for="customFileLang"
-                        > {{isset($product)?$product->image:('Pilih file')}} 
-                        </label>
+                        ></label>
                     </div>                
                 </div>
 

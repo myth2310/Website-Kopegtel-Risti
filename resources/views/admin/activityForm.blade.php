@@ -60,20 +60,25 @@
                 </div>          
 
                 <div class="form-group">
-                    <label class="form-control-label">Gambar</label>                            
+                    <label class="form-control-label">Gambar</label>      
+                    @if (isset($activity))                        
+                        <p>
+                            Image uploaded:
+                            <strong> {{$activity->name}}{{substr($activity->image,-4)}} </strong>
+                        </p>                       
+                    @endif
                     <div class="custom-file">
                         <input 
                             type="file" 
                             name="image" 
-                            class={{isset($activity)?'file-input':'custom-file-input'}}
+                            class="custom-file-input"
                             id="customFileLang" 
                             lang="en"
                         {{isset($activity)?"":"required"}}>
                         <label 
                             class="custom-file-label" 
                             for="customFileLang"
-                        > {{isset($activity)?$activity->image:('Pilih file')}} 
-                        </label>
+                        > </label>
                     </div>                
                 </div>
 

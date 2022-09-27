@@ -1,21 +1,21 @@
 <div class="content-contact">
     <div class="content-contact__alltext">
-        <h1 id="contact" class="content-contact__title">Hubungi Kami</h1>
-        <p>Hubungi kami untuk informasi lebih lengkap
-        melalui kolom formulir di bawah ini</p>
+        <h1 id="contact" class="content-contact__title">
+            Hubungi Kami
+        </h1>
+        <p>
+            Hubungi kami untuk informasi lebih lengkap melalui kolom formulir di bawah ini
+        </p>
     </div>
     <div class="card-body">
-        @if (Session::get('success'))
-                    <div class="alert alert-success">
-                        {{ Session::get('success') }}
-                    </div>                        
-                @endif
-                @if (Session::get('fail'))
-                    <div class="alert alert-danger">
-                        {{ Session::get('fail') }}
-                    </div>                        
-                @endif
+
         <div class="content-contact__box" style="gap: 1rem">
+
+            @if (Session::get('success'))
+                <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                </div>                        
+            @endif
 
             <form action="/Kopegtel-Risti/send-message" method="POST" enctype="multipart/form-data" style="gap: 24px">
             @csrf
@@ -76,9 +76,11 @@
                         @enderror
                 </div>
 
-                <div class="button-message">
-                    <h4 class="button-primary"><a href="/Kopegtel-Risti/send-message">Kirim Pesan</a></h4>
-                </div>
+                <div class="form-group button-message">                           
+                    <button type="submit" class="button-primary"> 
+                        Kirim Pesan                            
+                    </button>                            
+                </div> 
             </form>
 
          </div>

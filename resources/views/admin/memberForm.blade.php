@@ -105,21 +105,25 @@
                 </div>          
 
                 <div class="form-group">
-                    <label class="form-control-label">Foto</label>                            
+                    <label class="form-control-label">Foto</label>   
+                    @if (isset($member))                        
+                        <p>
+                            Image uploaded: 
+                            <strong> PasFoto_{{$member->name}}{{substr($member->image,-4)}} </strong>
+                        </p>                      
+                    @endif   
                     <div class="custom-file">
                         <input 
                             type="file" 
                             name="image" 
-                            class={{isset($member)?'file-input':'custom-file-input'}}
+                            class="custom-file-input"
                             id="customFileLang" 
                             lang="en"
                         {{isset($member)?"":"required"}}>
                         <label 
-                            class="custom-file-label" 
+                            class="custom-file-label text-truncate selected" 
                             for="customFileLang"
-                        > 
-                            {{isset($member)?$member->image:('Pilih file')}} 
-                        </label>
+                        ></label>
                     </div>                
                     @error('image')
                         <div class="invalid-feedback"> {{ $message }} </div>

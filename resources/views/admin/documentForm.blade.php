@@ -68,11 +68,17 @@
 
                 <div class="form-group">
                     <label class="form-control-label">Dokumen</label>
+                    @if (isset($document))                        
+                        <p>
+                            Document uploaded: 
+                            <strong> {{$document->fileName}}.{{$document->fileType}} </strong>
+                        </p>                      
+                    @endif                       
                     <div class="custom-file">
                         <input 
                             type="file" 
                             name="file" 
-                            class={{isset($document)?'file-input':'custom-file-input'}}
+                            class="custom-file-input"
                             id="customFileLang" 
                             lang="id"
                             value="asdsad"
@@ -80,8 +86,7 @@
                         <label 
                             class="custom-file-label" 
                             for="customFileLang"
-                        > {{isset($document)?$document->file:old('file', 'Pilih file')}} 
-                        </label>
+                        ></label>
                     </div>                
                 </div>
 
