@@ -61,6 +61,7 @@
                         <div class="invalid-feedback"> {{ $message }} </div>
                     @enderror
                 </div>
+                
 
                 @if (isset($member))                    
                     <div class="form-group">

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
+
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
@@ -129,6 +130,10 @@ main {
   line-height: 48px;
   font-style: normal;
 }
+.text_welcome p{
+  text-align: justify;
+}
+
 .content-activity a , .content-contact__alltext a,.content-activity__title,.content-product__title, .content-product a, .content-about-text a, .text_welcome h2 h1, .content-activity__card__text h4,.content-product__card__text h4, .frame-partner-title p{
   color: #212529
 }
@@ -315,16 +320,17 @@ text-align: right;
   font-size: 16px;
 }
 .content-bottom-card-button{
-  width: 95px;
-  height: 2rem;
-  background-color: #007EC6;
-  border-radius: 4px;
+  width: 100px;
+  height: 25px;
+  background-color: #0f9ff1;
+  border-radius: 7px;
   box-shadow: 0px 4px 6px rgba(50, 50, 93, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.08);
   display: flex;
   justify-content: center;
   align-items: center;
   
 }
+
 .content-bottom-card-button a{
   font-size: 12px;
   text-decoration: none;
@@ -333,6 +339,15 @@ text-align: right;
   display: flex;
   align-items: center;
   text-align: center;
+}
+
+.content-bottom-card-button:hover{
+  background-color: red;
+}
+.content-bottom-card-button:hover a{
+  background-color: red;
+  text-decoration:none ;
+  color: white;
 }
 .content-product__card, .content-activity__card {
   display: flex;
@@ -826,3 +841,13 @@ height: 60px;
   from {opacity: .4}
   to {opacity: 1}
 }
+
+.content-contact__title{
+  margin-top: 30px;
+}
+
+.elem-group{
+  margin-bottom: 20px;
+}
+
+

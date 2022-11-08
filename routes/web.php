@@ -19,6 +19,7 @@ $router->group([
     Route::get('/aboutus', '\App\Http\Controllers\enduserController@aboutus');
     Route::get('/product', '\App\Http\Controllers\enduserController@product');
     Route::get('/activity', '\App\Http\Controllers\enduserController@activity');
+    Route::get('/dokumen', '\App\Http\Controllers\enduserController@dokumen');
     Route::get('/activity-detail/{id}', '\App\Http\Controllers\enduserController@activityDetail');
     Route::get('/contact', '\App\Http\Controllers\enduserController@contact');
     Route::get('/create', 'App\Http\Controllers\enduserController@create');

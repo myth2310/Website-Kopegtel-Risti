@@ -16,3 +16,5 @@ class activity extends Model
         'image',
     ];    
 }
+
+

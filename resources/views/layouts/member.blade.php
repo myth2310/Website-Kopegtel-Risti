@@ -5,7 +5,7 @@
         </div>
         <div class="content-about-center__card__text">
             <h4> {{ $memberData->name }} </h4>
-            <p> {{ $memberData->position }} </p>
+            <h4> {{ $memberData->position }} </h4>
         </div>
     </div> 
 @endforeach    

@@ -54,7 +54,7 @@ class bannerController extends Controller
         ]);
 
         if ($request->file('image')){
-            $image = $request->file('image')->store("/images/banner");
+            $image = $request->file('image')->store("/images");
         }        
                 
         $banner = banner::create([
@@ -119,7 +119,7 @@ class bannerController extends Controller
               'image' => 'image|file|max:2048,jpeg,png,jpg',
             ]);
             Storage::delete($banner->image);
-            $path = $request->file('image')->store('images/banner');
+            $path = $request->file('image')->store('images');
             $banner->image = $path;
         }
         $banner->name = $request->name;

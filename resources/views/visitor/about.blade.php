@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang Kopegtel Risti</title>
+    <link rel="icon" href="/img/logo/logo_head.png">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -43,32 +44,7 @@
                 </div>
             </div>
 
-                <div class="content-about-bottom">
-                    <div class="content-about-bottom-text">
-                        <h1>Dokumen Lainnya</h1>
-                        <p>Dokumen Kopegtel dapat diunduh dengan klik tautan di bawah ini</p>
-                    </div>
-
-                    <div class="content-about-bottom-body">
-                        @foreach ($document as $res)
-                            <div class="content-about-bottom-card">
-                                <div class="content-bottom-card-title">
-                                    <h2>
-                                        {{ $res->fileName }}
-                                    </h2>
-                                    <p>
-                                        {{substr($res->created_at, 0, 10)}}
-                                    </p>
-                                </div>
-                                <div class="content-bottom-card-button">
-                                    <a href="/Kopegtel-Risti/download/{{ $res->document_id }}">Unduh</a>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-        </div>
-        
+            
     </main>
     
     @include('layouts.footer')

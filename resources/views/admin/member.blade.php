@@ -66,7 +66,7 @@
                                 <img 
                                     style="max-width: 76px", 
                                     object-fit="cover" 
-                                    alt="Pas Foto"
+                                    alt="{{$res->image}}"
                                     src="{{asset('storage/'.$res->image)}}"
                                 > 
                             </td>

@@ -1,6 +1,8 @@
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }}">
+
 <div class="content-contact">
     <div class="content-contact__alltext">
-        <h1 id="contact" class="content-contact__title">
+        <h1 id="contact" class="content-contact__title" >
             Hubungi Kami
         </h1>
         <p>

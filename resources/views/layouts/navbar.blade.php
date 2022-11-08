@@ -15,6 +15,7 @@
         <li class="nav-item"><h3><a class="active" href="/Kopegtel-Risti">Beranda</a></h3></li>
         <li class="nav-item"><h3><a href="/Kopegtel-Risti/aboutus">Tentang kami</a></h3></li>
         <li class="nav-item"><h3><a href="/Kopegtel-Risti/product">Produk</a></h3></li>
+        <li class="nav-item"><h3><a href="/Kopegtel-Risti/dokumen">Dokumen</a></h3></li>
         <li class="nav-item"><h3><a href="/Kopegtel-Risti/activity">Kegiatan</a></h3></li>
         <li class="nav-item"><h3><a href="/Kopegtel-Risti/contact">Hubungi kami</a></h3></li>
     </ul>

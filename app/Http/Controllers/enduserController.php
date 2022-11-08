@@ -51,6 +51,14 @@ class enduserController extends Controller
         return view('visitor.contact');  
     }
 
+    public function dokumen()
+    {
+        $document = DB::select('SELECT * FROM documents WHERE status = "yes"');
+
+        return view('visitor.dokumen', [
+            'document' => $document,
+        ]);
+    }
     public function create()
     {
         return view('visitor.contactForm', [

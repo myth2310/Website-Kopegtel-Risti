@@ -61,7 +61,7 @@ class memberController extends Controller
         ]);
 
         if ($request->file('image')){
-            $image = $request->file('image')->store("/images/member");
+            $image = $request->file('image')->store("storage.images.member");
         }
 
         $member = member::create([
