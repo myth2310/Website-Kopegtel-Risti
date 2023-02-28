@@ -4,36 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kegiatan Detail Kopegtel Risti</title>
+    <title>Kopegtel Risti</title>
     <link rel="icon" href="/img/logo/logo_head.png">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=6385cb861b929e0012813f5f&product=sticky-share-buttons&source=platform" async="async"></script>
 </head>
 
 <body>
     @include('layouts.navbar')
 
-    <main class="content-activity-detail">
-        
-            <div class="content-activity-detail__card__image">
-                <img src="src/images/kegiatan/parcel.png" alt="">
-            </div>
-            <div class="content-activity-detail__card__text">
-                <div class="content-activity-detail-date">
-                    <p>31 Mei 2022</p>
-                </div>
-                <div class="content-activity-detail-paragraph">
-                    <h1>Pembagian Parcel</h1>
-                    <p>Pembagian Parcel dilaksanakan dalam rangka Bulan Suci Ramadhan. Ketua KOPEGTEL RisTI memberikan parcel kepada beberapa Karyawan Telkom di Bandung. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-                        <br>
-                        <br>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Volutpat odio facilisis mauris sit amet massa.
-                        <br>
-                        <br>
-                        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                </div>
-            </div>
+    <main>
 
+      <div class="artikel">
+        
+        <div class="artikel-image">
+          <img src="{{asset('storage/image/kegiatan/'.$artikel_detail->image)}}" alt="Artikel">
+          <p><i class="fa-solid fa-calendar-days" style="margin-right:1%;"></i> {{\Carbon\Carbon::parse($artikel_detail->date)->format('l, d F Y')}}</p>  
+          <h2>{{$artikel_detail->name}}</h2>
+        </div>
+        <div class="description">
+         <article>
+          {!! $artikel_detail->description !!}
+         </article>
+        </div>
+       
+         
+      </div>
+          
+
+
+            
     </main>
     
     @include('layouts.footer')

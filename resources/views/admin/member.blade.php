@@ -67,7 +67,7 @@
                                     style="max-width: 76px", 
                                     object-fit="cover" 
                                     alt="{{$res->image}}"
-                                    src="{{asset('storage/'.$res->image)}}"
+                                    src="{{asset('storage/image/pengurus/'.$res->image)}}"
                                 > 
                             </td>
                             <td>                                                

@@ -18,7 +18,8 @@
             <div class="content-header">
                 <div class="content-header__text">
                     <div class="text_welcome">
-                        <h1>Tentang KOPEGTEL RISTI</h1>
+                        <h2>Tentang</h2>
+                         <h1>KOPEGTEL RISTI</h1>
                         <p>KOPEGTEL RISTI merupakan Koperasi Pegawai Telkom Divisi Riset Teknologi Informasi yang bertujuan untuk memajukan kesejahteraan anggota secara khusus, serta masyarakat secara umum. Selain itu, KOPEGTEL RisTI ikut serta dalam membangun tatanan perekonomian nasional dengan tujuan mewujudkan masyarakat yang maju, adil dan makmur berlandaskan Pancasila dan Undang Undang Dasar 1945 </p>
                     </div>
                 </div>
@@ -44,7 +45,73 @@
                 </div>
             </div>
 
-            
+                <div class="content-about-bottom">
+                    <div class="content-about-bottom-text">
+                        <h1>Dokumen Lainnya</h1>
+                        <p>Dokumen Kopegtel dapat diunduh dengan klik tautan di bawah ini</p>
+                    </div>
+
+                    <div class="content-about-bottom-body">
+                        @foreach ($document as $res)
+                            <div class="content-about-bottom-card">
+                                <div class="content-bottom-card-title">
+                                    <h2>
+                                        {{ $res->fileName }}
+                                    </h2>
+                                    <p>
+                                        {{\Carbon\Carbon::parse($res->created_at)->format('d F Y')}}
+                                    </p>
+                                </div>
+                                <div class="content-bottom-card-button">
+                                    <a href="download/{{ $res->document_id }}">Unduh</a>
+                                </div>
+                            </div>
+                            <div class="content-about-bottom-card">
+                                <div class="content-bottom-card-title">
+                                    <h2>
+                                        {{ $res->fileName }}
+                                    </h2>
+                                    <p>
+                                        {{\Carbon\Carbon::parse($res->created_at)->format('d F Y')}}
+                                    </p>
+                                </div>
+                                <div class="content-bottom-card-button">
+                                    <a href="download/{{ $res->document_id }}">Unduh</a>
+                                </div>
+                            </div>
+                            <div class="content-about-bottom-card">
+                                <div class="content-bottom-card-title">
+                                    <h2>
+                                        {{ $res->fileName }}
+                                    </h2>
+                                    <p>
+                                        {{\Carbon\Carbon::parse($res->created_at)->format('d F Y')}}
+                                    </p>
+                                </div>
+                                <div class="content-bottom-card-button">
+                                    <a href="download/{{ $res->document_id }}">Unduh</a>
+                                </div>
+                            </div>
+                            <div class="content-about-bottom-card">
+                                <div class="content-bottom-card-title">
+                                    <h2>
+                                        {{ $res->fileName }}
+                                    </h2>
+                                    <p>
+                                        {{\Carbon\Carbon::parse($res->created_at)->format('d F Y')}}
+                                    </p>
+                                </div>
+                                <div class="content-bottom-card-button">
+                                    <a href="download/{{ $res->document_id }}">Unduh</a>
+                                </div>
+                            </div>
+                
+                            
+                        @endforeach
+                    </div>
+                </div>
+        </div>
+        
     </main>
     
     @include('layouts.footer')

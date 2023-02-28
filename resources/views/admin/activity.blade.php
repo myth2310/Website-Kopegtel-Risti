@@ -49,14 +49,14 @@
                                 word-wrap: break-word;
                                 overflow: hidden;"                    
                             > 
-                                {{ $res->description }} 
+                                {{ $res->except }} 
                             </td>
                             <td> 
                                 <img 
                                     style="max-width: 76px", 
                                     object-fit="cover" 
                                     alt="Gambar Kegiatan"
-                                    src="{{asset('storage/'.$res->image)}}"
+                                    src="{{asset('storage/image/kegiatan/'.$res->image)}}"
                                 > 
                             </td>
                             <td class="table-actions">

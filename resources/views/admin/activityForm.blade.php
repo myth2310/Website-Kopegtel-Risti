@@ -1,11 +1,13 @@
 @extends('layouts.template.admin')
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+  <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 
 @section('content')
 <div 
     class="container"
     style="padding-left: 200px; padding-top: 92px;"
 >   
-    <div class="card">
+    <div class="card ml-4 mt-2">
         <div class="card-header">
             <h3>
                 {{isset($activity)?"Ubah Kegiatan":"Tambah Kegiatan Baru"}} 
@@ -17,13 +19,13 @@
             @csrf
                 <input type="hidden" name="_method" value="{{$method}}">
                 <div class="form-group">
-                    <label for="" class="form-control-label">Name</label>
+                    <label for="" class="form-control-label">Nama Kegiatan</label>
                     <input 
                         type="text" 
                         name="name" 
                         id="name" 
                         placeholder="Enter name..."
-                        maxlength="60"
+                        maxlength="200"
                         class="form-control @error('name') is-invalid @enderror" 
                         value="{{isset($activity)?$activity->name:old('name')}}"
                     >
@@ -33,7 +35,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="" class="form-control-label">Date</label>
+                    <label for="" class="form-control-label">Tanggal</label>
                     <input 
                         type="date" 
                         name="date" 
@@ -44,18 +46,21 @@
                     @error('date')
                         <div class="invalid-feedback"> {{ $message }} </div>
                     @enderror
-                </div>      
+                </div>        
 
                 <div class="form-group">
-                    <label for="" class="form-control-label">Description</label>
-                    <textarea 
+                    <label for="" class="form-control-label">Deskripsi</label>
+                    <input id="description" type="hidden" name="description" class="form-control @error('description') is-invalid @enderror"
+                    value="{{isset($activity)?$activity->description:old('description')}}">
+                    <trix-editor input="description"></trix-editor>
+                    {{-- <textarea 
                         name="description" 
                         id="exampleFormControlTextarea1" 
                         rows="3" 
                         maxlength="3000"
                         placeholder="Enter description..."
                         class="form-control @error('description') is-invalid @enderror"
-                    >{{isset($activity)?$activity->description:old('description')}}</textarea>
+                    >{{isset($activity)?$activity->description:old('description')}}</textarea> --}}
                     @error('description')
                         <div class="invalid-feedback"> {{ $message }} </div>
                     @enderror

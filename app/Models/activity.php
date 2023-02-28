@@ -11,10 +11,15 @@ class activity extends Model
     protected $primaryKey = 'activity_id';
     protected $fillable = [
         'name',
+        'slug',
         'date',
         'description',
         'image',
-    ];    
+    ];   
+    
+    public function getRouteKeyName(){
+        return 'slug';
+    }
 }
 
 

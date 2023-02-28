@@ -62,7 +62,7 @@ class messageController extends Controller
             'description' => $request["description"],
         ]);
 
-        return redirect('/kopegtel-Risti') -> with('Berhasil', "Pesan anda telah dikirim!");
+        return redirect('/') -> with('Berhasil', "Pesan anda telah dikirim!");
     }
 
     /**

@@ -47,7 +47,7 @@
                                     style="max-width: 76px"
                                     object-fit="cover" 
                                     alt="Gambar Banner"
-                                    src="{{asset('storage/'.$res->image)}}"
+                                    src="{{asset('storage/image/banner/'.$res->image)}}"
                                 > 
                             </td>
                             <td>                                                

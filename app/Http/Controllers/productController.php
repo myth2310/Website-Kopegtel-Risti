@@ -6,6 +6,7 @@ use App\Models\product;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class productController extends Controller
 {
@@ -43,26 +44,27 @@ class productController extends Controller
      */
     public function store(Request $request)
     {
-        $request -> validate([
+        $validator = $request -> validate([
             'name' => 'required',
             'description' => 'required',
-            'image' => 'image|file|max:2048,jpeg,png,jpg', 
+            'image' => 'image|file|max:2048,jpeg,png,jpg',    
         ], 
         [
             "name.required" => "Please enter product name",
             "description.required" => "Please enter description",
-            "image.required" => "Please insert image",
         ]);
 
-        if ($request->file('image')){
-            $image = $request->file('image')->store("/images/product");
-        } 
-
-        $product = product::create([
-            'name' => $request["name"],
-            'description' => $request["description"],
-            'image' => $image,
-        ]);
+        $product = new Product;
+        $product->name= $request->input('name');
+        $product->description= $request->input('description');
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $extention = $file->getClientOriginalExtension();
+            $filename = $request->name.'_'.now()->timestamp.'.'.$extention;
+            $file->storeAs('image/product/',$filename);
+            $product->image = $filename;
+        }
+        $product->save();
 
         return redirect('/product') -> with('success', "Data berhasil ditambahkan!");
     }
@@ -115,14 +117,19 @@ class productController extends Controller
             "description.required" => "Please enter description",
         ]);
         
+
         if($request->hasFile('image')){
             $request->validate([
-              'image' => 'image|file|max:2048,jpeg,png,jpg',
-            ]);
+                'image' => 'image|file|max:2048,jpeg,png,jpg',
+              ]);
             Storage::delete($product->image);
-            $path = $request->file('image')->store('images/product');
-            $product->image = $path;
+            $file = $request->file('image');
+            $extention = $file->getClientOriginalExtension();
+            $filename = $request->name.'_'.now()->timestamp.'.'.$extention;
+            $file->storeAs('image/product/',$filename);
+            $product->image = $filename;
         }
+
         $product->name = $request->name;
         $product->description = $request->description;
         $product->save();
@@ -138,10 +145,19 @@ class productController extends Controller
      */
     public function destroy($id)
     {
-        $product = product::find($id);
-        Storage::delete($product->image);
+        // $product = product::find($id);
+        // Storage::delete($product->image);
 
-        $product = product::destroy($id);
-        return back() -> with('success', "Data berhasil dihapus!"); 
+        // $product = product::destroy($id);
+        // return back() -> with('success', "Data berhasil dihapus!"); 
+
+        $product = Product::find($id);
+        $path = 'storage/image/product/'.$product->image;
+        if(File::exists($path)){
+            File::delete($path);
+        }
+        $product->delete();
+        
+        return back() -> with('success', "Data berhasil dihapus!");
     }
 }

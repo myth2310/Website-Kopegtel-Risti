@@ -6,6 +6,7 @@ use App\Models\banner;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class bannerController extends Controller
 {
@@ -42,26 +43,31 @@ class bannerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-       
-        $request -> validate([
+    {        
+        $validator = $request -> validate([
             'name' => 'required',
-            'image' => 'image|file|max:2048,jpeg,png,jpg', 
+            'image' => 'image|file|max:2048,jpeg,png,jpg',  
         ], 
         [
             "name.required" => "Please enter banner name",
             "image.required" => "Please insert image",
         ]);
 
-        if ($request->file('image')){
-            $image = $request->file('image')->store("/images");
-        }        
-                
-        $banner = banner::create([
-            'name' => $request["name"],
-            'status' => $request["status"],
-            'image' => $image,
-        ]);
+        $banner = new Banner;
+        $banner->name= $request->input('name');
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $extention = $file->getClientOriginalExtension();
+            $filename = $request->name.'_'.now()->timestamp.'.'.$extention;
+            $file->storeAs('image/banner/',$filename);
+            $banner->image = $filename;
+        
+        }
+        
+
+        $banner->save();
+
+        
 
         return redirect('/banner') -> with('success', "Data berhasil ditambahkan!");
     }
@@ -114,17 +120,32 @@ class bannerController extends Controller
             "image.required" => "Please insert image",
         ]);
 
+        // if($request->hasFile('image')){
+        //     $request->validate([
+        //       'image' => 'image|file|max:2048,jpeg,png,jpg',
+        //     ]);
+        //     Storage::delete($banner->image);
+        //     $path = $request->file('image')->store('images');
+        //     $banner->image = $path;  
+        // }
+
         if($request->hasFile('image')){
             $request->validate([
-              'image' => 'image|file|max:2048,jpeg,png,jpg',
-            ]);
+                'image' => 'image|file|max:2048,jpeg,png,jpg',
+              ]);
             Storage::delete($banner->image);
-            $path = $request->file('image')->store('images');
-            $banner->image = $path;
+            $file = $request->file('image');
+            $extention = $file->getClientOriginalExtension();
+            $filename = $request->name.'_'.now()->timestamp.'.'.$extention;
+            $file->storeAs('image/banner/',$filename);
+            $banner->image = $filename;
         }
+
         $banner->name = $request->name;
         $banner->status = $request->status;
         $banner->save();
+
+        
 
         return redirect('/banner') -> with('success', "Data berhasil diperbarui!");
     }
@@ -137,10 +158,16 @@ class bannerController extends Controller
      */
     public function destroy($id)
     {
-        $banner = banner::find($id);
-        Storage::delete($banner->image);
+        $banner = Banner::find($id);
+        $path = 'storage/image/banner/'.$banner->image;
+        if(File::exists($path)){
+            File::delete($path);
+        }
+        $banner->delete();
+        //$banner = banner::find($id);
+        //Storage::delete($banner->image);
 
-        $banner = banner::destroy($id);
+        //$banner = banner::destroy($id);
         return redirect('/banner') -> with('success', "Data berhasil dihapus!");
     }
 }

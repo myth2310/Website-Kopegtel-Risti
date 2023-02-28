@@ -1,3 +1,4 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 @extends('layouts.template.admin')
 
 @section('content')
@@ -5,7 +6,7 @@
     class="container"
     style="padding-left: 200px; padding-top: 92px;"
 >   
-    <div class="card">
+    <div class="card ml-4 mt-2">
         <div class="card-header">
             <h3>
                 {{isset($member)?"Ubah Anggota":"Tambah Anggota baru"}} 
@@ -17,7 +18,7 @@
             @csrf
                 <input type="hidden" name="_method" value="{{$method}}">
                 <div class="form-group">
-                    <label for="" class="form-control-label">Nama</label>
+                    <label for="" class="form-control-label">Nama Anggota</label>
                     <input 
                         type="text" 
                         name="name" 
@@ -61,36 +62,28 @@
                         <div class="invalid-feedback"> {{ $message }} </div>
                     @enderror
                 </div>
+
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Posisi</label>
+                     <select class="form-select" aria-label="Default select example" name="position">
+                        <option selected>Pilih Posisi</option>
+                        <option value="Ketua">Ketua</option>
+                        <option value="Wakil">Wakil</option>
+                        <option value="Sekertaris">Sekertaris</option>
+                        <option value="Bendahara">Bendahara</option>
+                    </select>
+                </div>
                 
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Status</label>
+                     <select class="form-select" aria-label="Default select example" name="status">
+                        <option selected>Pilih Status</option>
+                        <option value="Aktif">Aktif</option>
+                        <option value="Pensiun">Pensiun</option>
+                    </select>
+                </div>
 
-                @if (isset($member))                    
-                    <div class="form-group">
-                        <label for="" class="form-control-label">Jabatan</label>
-                        <select class="form-control @error('position') is-invalid @enderror" id="position" name="position">
-                            <option value="Anggota" {{($member->position == "Anggota" ? "selected": "")}}>Anggota</option>
-                            <option value="Ketua" {{($member->position == "Ketua" ? "selected": "")}}>Ketua</option>
-                            <option value="Sekretaris" {{($member->position == "Sekretaris" ? "selected": "")}}>Sekretaris</option>
-                            <option value="Bendahara" {{($member->position == "Bendahara" ? "selected": "")}}>Bendahara</option>
-                            <option value="Korbid Usaha 1" {{($member->position == "Korbid Usaha 1" ? "selected": "")}}>Korbid Usaha 1</option>
-                            <option value="Korbid Usaha 2" {{($member->position == "Korbid Usaha 2" ? "selected": "")}}>Korbid Usaha 2</option>
-                        </select>
-                        @error('position')
-                            <div class="invalid-feedback"> {{ $message }} </div>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        <label for="" class="form-control-label">Status</label>
-                        <select class="form-control @error('status') is-invalid @enderror" id="status" name="status">
-                            <option value="Aktif" {{($member->status == "Aktif" ? "selected": "")}}>Aktif</option>
-                            <option value="Pensiun" {{($member->status == "Pensiun" ? "selected": "")}}>Pensiun</option>
-                            <option value="Luar Biasa" {{($member->status == "Luar Biasa" ? "selected": "")}}>Luar Biasa</option>
-                        </select>
-                        @error('status')
-                            <div class="invalid-feedback"> {{ $message }} </div>
-                        @enderror
-                    </div>
-                @endif
+                
 
                 <div class="form-group">
                     <label for="" class="form-control-label">Alamat</label>

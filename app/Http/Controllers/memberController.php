@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use App\Exports\MemberExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\File;
 
 class memberController extends Controller
 {
@@ -45,32 +46,41 @@ class memberController extends Controller
      */
     public function store(Request $request)
     {      
-        $request -> validate([
+
+        $validator = $request -> validate([
             'name' => 'required',
-            'email' => 'required|unique:members',
+            'email' => 'required',
             'phone' => 'required',
-            'address' => 'required',
+            'address' => 'required',  
+            'position' => 'required',  
+            'status' => 'required',
             'image' => 'image|file|max:2048,jpeg,png,jpg',
         ], 
         [
             "name.required" => "Please enter member name",
             "email.required" => "Please enter email",
+            "email.unique" => "Email already used",
             "phone.required" => "Please enter phone number",
             "address.required" => "Please enter address",
             "image.required" => "Please insert image",
         ]);
 
-        if ($request->file('image')){
-            $image = $request->file('image')->store("storage.images.member");
+        $member = new Member;
+        $member->name= $request->input('name');
+        $member->email= $request->input('email');
+        $member->phone= $request->input('phone');
+        $member->address= $request->input('address');
+        $member->position= $request->input('position');
+        $member->status= $request->input('status');
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $extention = $file->getClientOriginalExtension();
+            $filename = $request->name.'_'.now()->timestamp.'.'.$extention;
+            $file->storeAs('image/pengurus/',$filename);
+            $member->image = $filename;
         }
-
-        $member = member::create([
-            'name' => $request["name"],
-            'email' => $request["email"],
-            'phone' => $request["phone"],
-            'address' => $request["address"],
-            'image' => $image,
-        ]);
+        
+        $member->save();
 
         return redirect('/member') -> with('success', "Data berhasil ditambahkan!");  
     }
@@ -132,14 +142,27 @@ class memberController extends Controller
             "image.required" => "Please insert image",
         ]);
 
+        // if($request->hasFile('image')){
+        //     $request->validate([
+        //       'image' => 'image|file|max:2048,jpeg,png,jpg',
+        //     ]);
+        //     Storage::delete($member->image);
+        //     $path = $request->file('image')->store('images/member');
+        //     $member->image = $path;
+        // }
+
         if($request->hasFile('image')){
             $request->validate([
-              'image' => 'image|file|max:2048,jpeg,png,jpg',
-            ]);
+                'image' => 'image|file|max:2048,jpeg,png,jpg',
+              ]);
             Storage::delete($member->image);
-            $path = $request->file('image')->store('images/member');
-            $member->image = $path;
+            $file = $request->file('image');
+            $extention = $file->getClientOriginalExtension();
+            $filename = $request->name.'_'.now()->timestamp.'.'.$extention;
+            $file->storeAs('image/pengurus/',$filename);
+            $member->image = $filename;
         }
+
         $member->name = $validator["name"];
         $member->phone = $validator["phone"];
         $member->address = $validator["address"];
@@ -162,10 +185,18 @@ class memberController extends Controller
      */
     public function destroy($id)
     {
-        $member = member::find($id);
-        Storage::delete($member->image);
+        // $member = member::find($id);
+        // Storage::delete($member->image);
 
-        $member = member::destroy($id);
+        // $member = member::destroy($id);
+        // return back() -> with('success', "Data berhasil dihapus!");
+        $member = Member::find($id);
+        $path = 'storage/image/pengurus/'.$member->image;
+        if(File::exists($path)){
+            File::delete($path);
+        }
+        $member->delete();
+        
         return back() -> with('success', "Data berhasil dihapus!"); 
     }
 

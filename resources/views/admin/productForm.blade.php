@@ -5,7 +5,7 @@
     class="container"
     style="padding-left: 200px; padding-top: 92px;"
 >   
-    <div class="card">
+    <div class="card ml-4 mt-2">
         <div class="card-header">
             <h3>
                 {{isset($product)?"Ubah Produk":"Tambah Produk Baru"}} 
@@ -17,7 +17,7 @@
             @csrf
                 <input type="hidden" name="_method" value="{{$method}}">
                 <div class="form-group">
-                    <label for="" class="form-control-label">Name</label>
+                    <label for="" class="form-control-label">Nama Product</label>
                     <input 
                         type="text" 
                         name="name" 
@@ -33,7 +33,7 @@
                 </div>  
 
                 <div class="form-group">
-                    <label for="" class="form-control-label">Description</label>
+                    <label for="" class="form-control-label">Deskripsi Product</label>
                     <textarea 
                         name="description" 
                         id="exampleFormControlTextarea1" 

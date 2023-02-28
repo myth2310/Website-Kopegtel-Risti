@@ -7,6 +7,8 @@ use App\Models\activity;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 class activityController extends Controller
 {
@@ -44,29 +46,33 @@ class activityController extends Controller
      */
     public function store(Request $request)
     {
-        $request -> validate([
+
+        $validator = $request -> validate([
             'name' => 'required',
             'date' => 'required',
             'description' => 'required',
-            'image' => 'image|file|max:2048,jpeg,png,jpg',
-        ],
+            'image' => 'image|file|max:2048,jpeg,png,jpg',  
+        ], 
         [
             "name.required" => "Please enter activity name",
             "date.required" => "Please enter date",
             "description.required" => "Please enter description",
-            "image.required" => "Please insert image",
         ]);
 
-        if ($request->file('image')){
-            $image = $request->file('image')->store("/images/activity");
-        }        
-        
-        $activity = activity::create([
-            'name' => $request["name"],
-            'date' => $request["date"],
-            'description' => $request["description"],
-            'image' => $image,
-        ]);
+        $activity = new Activity;
+        $activity->name= $request->input('name');
+        $activity['slug'] = Str::slug($request->name);
+        $activity->date= $request->input('date');
+        $activity->description= $request->input('description');
+        $activity['except']= Str::limit(strip_tags($request->description,30));
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $extention = $file->getClientOriginalExtension();
+            $filename = $request->name.'_'.now()->timestamp.'.'.$extention;
+            $file->storeAs('image/kegiatan/',$filename);
+            $activity->image = $filename;
+        }
+        $activity->save();
 
         return redirect('/activity') -> with('success', "Data berhasil ditambahkan!");
     }
@@ -124,12 +130,17 @@ class activityController extends Controller
 
         if($request->hasFile('image')){
             $request->validate([
-              'image' => 'image|file|max:2048,jpeg,png,jpg',
-            ]);
+                'image' => 'image|file|max:2048,jpeg,png,jpg',
+              ]);
             Storage::delete($activity->image);
-            $path = $request->file('image')->store('images/activity');
-            $activity->image = $path;
+            $file = $request->file('image');
+            $extention = $file->getClientOriginalExtension();
+            $filename = $request->name.'_'.now()->timestamp.'.'.$extention;
+            $file->storeAs('image/kegiatan/',$filename);
+            $activity->image = $filename;
         }
+
+
         $activity->name = $request->name;
         $activity->date = $request->date;
         $activity->description = $request->description;
@@ -145,11 +156,14 @@ class activityController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        $activity = activity::find($id);
-        Storage::delete($activity->image);
-
-        $activity = activity::destroy($id);
-        return back() -> with('success', "Data berhasil dihapus!"); 
+    { 
+        $activity = Activity::find($id);
+        $path = 'storage/image/kegiatan/'.$activity->image;
+        if(File::exists($path)){
+            File::delete($path);
+        }
+        $activity->delete();
+        
+        return back() -> with('success', "Data berhasil dihapus!");
     }
 }

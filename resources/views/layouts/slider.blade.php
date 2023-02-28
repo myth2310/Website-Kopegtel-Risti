@@ -1,11 +1,11 @@
 <!-- Slideshow container -->
-<div class="content-header__image">
+<div class="content-header__image_splash">
     @if ($total_banner > 0)
         @foreach ($banner as $res)                  
                 <div class="mySlides fade">               
                     <img 
-                        style="width: 456px"
-                        src="{{asset('storage/'.$res->image)}}"
+                        style="width: 456px;"
+                        src="{{asset('storage/image/banner/'.$res->image)}}"
                     >      
                 </div>            
         @endforeach          

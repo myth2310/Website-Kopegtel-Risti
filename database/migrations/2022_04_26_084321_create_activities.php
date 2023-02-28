@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->id('activity_id');
-            $table->string('name', 60);
+            $table->string('name');
+            $table->string('slug');
             $table->date('date');
-            $table->string('description', 3000);
+            $table->string('description', 9000);
+            $table->string('except');
             $table->string('image')->default("");
             $table->timestamps();
         });

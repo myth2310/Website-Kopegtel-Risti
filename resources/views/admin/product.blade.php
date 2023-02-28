@@ -54,7 +54,7 @@
                                     style="max-width: 76px",  
                                     object-fit="cover" 
                                     alt="Gambar Produk"
-                                    src="{{asset('storage/'.$res->image)}}"
+                                    src="{{asset('storage/image/product/'.$res->image)}}"
                                 > 
                             </td>
                             <td class="table-actions">

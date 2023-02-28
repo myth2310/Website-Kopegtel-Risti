@@ -13,14 +13,14 @@ use App\Http\Controllers\enduserController;
 
 // END USER
 $router->group([
-    'prefix'    => 'Kopegtel-Risti',
+    'prefix'    => '/',
 ], function ($router) {
     Route::get('/', '\App\Http\Controllers\enduserController@homepage');
-    Route::get('/aboutus', '\App\Http\Controllers\enduserController@aboutus');
-    Route::get('/product', '\App\Http\Controllers\enduserController@product');
-    Route::get('/activity', '\App\Http\Controllers\enduserController@activity');
-    Route::get('/dokumen', '\App\Http\Controllers\enduserController@dokumen');
-    Route::get('/activity-detail/{id}', '\App\Http\Controllers\enduserController@activityDetail');
+    Route::get('/Aboutus', '\App\Http\Controllers\enduserController@aboutus');
+    Route::get('/Produk', '\App\Http\Controllers\enduserController@produk');
+    Route::get('/Aktivitas', '\App\Http\Controllers\enduserController@aktivitas');
+    Route::get('/Dokumen', '\App\Http\Controllers\enduserController@dokumen');
+    Route::get('/Artikel/{artikel}', '\App\Http\Controllers\enduserController@activityDetail');
     Route::get('/contact', '\App\Http\Controllers\enduserController@contact');
     Route::get('/create', 'App\Http\Controllers\enduserController@create');
     Route::post('/send-message', '\App\Http\Controllers\enduserController@store');
